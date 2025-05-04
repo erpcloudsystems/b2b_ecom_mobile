@@ -1,0 +1,12 @@
+// const String demoUserEmail = 'administrator';
+// const String demoUserPassword = 'Ecs_2320';
+// const String apiKey = 'apiKey';
+// const String apiSecretKey = 'apiSecret';
+const String isLoggedInKey = 'isLoggedIn';
+const String usernameKey = 'username';
+const String userImageKey = 'userImage';
+const String nameKey = 'name';
+const String systemAdminKey = 'systemAdmin';
+const String emailKey = 'email';
+const String passwordKey = 'password';
+const String isFirstTimeUserKey = 'isFirstTimeUser';

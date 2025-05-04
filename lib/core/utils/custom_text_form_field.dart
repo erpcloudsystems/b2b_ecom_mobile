@@ -1,0 +1,128 @@
+import 'package:class_a_ec/core/resources/colors_managers.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_gutter/flutter_gutter.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../resources/strings_manager.dart';
+
+class CustomTextFormField extends StatefulWidget {
+  const CustomTextFormField({
+    super.key,
+    this.hintText,
+    this.prefixIcon,
+    this.isPassword = false,
+    this.initialValue,
+    this.maxLines = 1,
+    this.labelText,
+    this.controller,
+    this.isValidate = true,
+    this.isEmail = false,
+    this.isConfirmPassword = false,
+    this.newPassword,
+    this.isEnabled = true,
+    this.onChanged,
+    this.title,
+  });
+  final String? hintText;
+  final Icon? prefixIcon;
+  final bool isPassword;
+  final String? initialValue;
+  final String? labelText;
+  final int maxLines;
+  final TextEditingController? controller;
+  final bool isValidate;
+  final bool isEmail;
+  final bool isConfirmPassword;
+  final TextEditingController? newPassword;
+  final bool? isEnabled;
+  final void Function(String)? onChanged;
+  final String? title;
+
+  @override
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
+  bool? isObscureText;
+  bool get getIsObscureText {
+    isObscureText ??= widget.isPassword;
+    return isObscureText!;
+  }
+
+  IconData passwordIcon = Icons.visibility_off;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (widget.title != null) ...[
+          Text(
+            widget.title!,
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          const GutterTiny(),
+        ],
+        Container(
+          height: 45.h,
+          decoration: BoxDecoration(
+            color: ColorsManager.secondaryColor.withValues(
+              alpha: (0.1 * 255),
+            ),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: TextFormField(
+            enabled: widget.isEnabled,
+            controller: widget.controller,
+            maxLines: widget.maxLines,
+            validator: widget.isValidate
+                ? (value) {
+                    if (value!.trim().isEmpty) {
+                      return StringsManager.emptyValidator;
+                    } else if (widget.isEmail && !isEmail(value)) {
+                      return StringsManager.emailValidator;
+                    } else if (widget.isConfirmPassword &&
+                        value != widget.newPassword!.text) {
+                      return StringsManager.newPasswordDoesNotMatch;
+                    }
+                    return null;
+                  }
+                : null,
+            decoration: InputDecoration(
+              contentPadding: const EdgeInsets.all(15),
+              prefixIcon: widget.prefixIcon,
+              suffixIcon: widget.isPassword
+                  ? IconButton(
+                      icon: Icon(passwordIcon),
+                      onPressed: () {
+                        setState(() {
+                          isObscureText = !getIsObscureText;
+                          if (!getIsObscureText) {
+                            passwordIcon = Icons.visibility;
+                          } else {
+                            passwordIcon = Icons.visibility_off;
+                          }
+                        });
+                      },
+                    )
+                  : null,
+              hintText: widget.hintText,
+              labelText: widget.labelText,
+              hintStyle: Theme.of(context).textTheme.bodyMedium,
+              labelStyle: Theme.of(context).textTheme.bodyMedium,
+            ),
+            obscureText: getIsObscureText,
+            style: Theme.of(context).textTheme.bodyMedium,
+            initialValue: widget.initialValue,
+            onChanged: widget.onChanged,
+          ),
+        ),
+      ],
+    );
+  }
+
+  bool isEmail(String value) {
+    final emailRegex =
+        RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+    return emailRegex.hasMatch(value);
+  }
+}
