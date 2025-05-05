@@ -12,11 +12,7 @@ class LoginForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Welcome'.hardCoded,
-            style: Theme.of(context).textTheme.headlineSmall,
-          ),
-          const GutterLarge(),
+         
           CustomTextFormField(
             title: 'Email'.hardCoded,
             isEmail: true,

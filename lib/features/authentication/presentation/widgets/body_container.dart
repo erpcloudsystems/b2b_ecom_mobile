@@ -10,10 +10,10 @@ class BodyContainer extends StatelessWidget {
     return Container(
       height: 680.h,
       width: double.infinity,
-      padding: EdgeInsets.symmetric(
-        horizontal: 32.w,
-        vertical: 32.h,
-      ),
+      // padding: EdgeInsets.symmetric(
+      //   horizontal: 32.w,
+      //   vertical: 32.h,
+      // ),
       decoration: const BoxDecoration(
         color: ColorsManager.white,
         borderRadius: BorderRadius.only(

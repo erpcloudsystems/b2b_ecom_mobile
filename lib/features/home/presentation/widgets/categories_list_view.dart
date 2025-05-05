@@ -9,14 +9,15 @@ class CategoriesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 5,
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      itemCount: 6,
       shrinkWrap: true,
       scrollDirection: Axis.horizontal,
-      itemBuilder: (context, index) => Padding(
+      itemBuilder: (context, index) => const Padding(
         padding: EdgeInsets.only(
-          right: 20.w,
+          right: 10,
         ),
-        child: const CategoriesIconContainer(
+        child: CategoriesIconContainer(
           title: 'Title',
           iconData: FontAwesomeIcons.apple,
         ),

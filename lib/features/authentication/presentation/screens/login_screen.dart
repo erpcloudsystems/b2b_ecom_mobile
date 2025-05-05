@@ -7,6 +7,7 @@ import 'package:class_a_ec/features/authentication/presentation/widgets/header_w
 import 'package:class_a_ec/features/authentication/presentation/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -29,8 +30,17 @@ class LoginScreenState extends State<LoginScreen> {
             alignment: Alignment.bottomCenter,
             child: BodyContainer(
               child: SingleChildScrollView(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 16.w,
+                  vertical: 32.h,
+                ),
                 child: Column(
                   children: [
+                    Text(
+                      'Welcome'.hardCoded,
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    const GutterLarge(),
                     const LoginForm(),
                     const Gutter(),
                     Align(

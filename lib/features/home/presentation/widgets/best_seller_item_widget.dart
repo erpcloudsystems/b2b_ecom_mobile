@@ -12,7 +12,7 @@ class BestSellerItemWidget extends StatelessWidget {
     return Stack(
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 10),
+          padding: const EdgeInsets.only(right: 10),
           child: Image.asset(
             imagePath,
             fit: BoxFit.cover,

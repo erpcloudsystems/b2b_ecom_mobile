@@ -1,6 +1,7 @@
 import 'package:class_a_ec/core/resources/image_paths.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/recommended_item_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecommendedItemsListView extends StatelessWidget {
   const RecommendedItemsListView({super.key});
@@ -8,16 +9,18 @@ class RecommendedItemsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: EdgeInsets.zero,
+      padding: EdgeInsets.symmetric(
+        horizontal: 16.w,
+      ),
       itemCount: 3,
       shrinkWrap: true,
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) {
-        return const Padding(
+        return Padding(
           padding: EdgeInsets.only(
-            right: 10,
+            right: 10.w,
           ),
-          child: RecommendedItemWidget(
+          child: const RecommendedItemWidget(
             imagePath: ImagePaths.bestSeller,
           ),
         );

@@ -21,9 +21,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       body: Stack(
         children: [
           HeaderWidget(
@@ -31,21 +34,26 @@ class HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SearchContainer(),
-                    GutterLarge(),
-                    SVGIconContainer(
+                    const SearchContainer(),
+                    const GutterLarge(),
+                    const SVGIconContainer(
                       iconPath: SVGIconPaths.cartIcon,
                     ),
-                    GutterSmall(),
-                    SVGIconContainer(
+                    const GutterSmall(),
+                    const SVGIconContainer(
                       iconPath: SVGIconPaths.notificationIcon,
                     ),
-                    GutterSmall(),
-                    SVGIconContainer(
-                      iconPath: SVGIconPaths.profileIcon,
+                    const GutterSmall(),
+                    GestureDetector(
+                      onTap: () {
+                        _scaffoldKey.currentState?.openEndDrawer();
+                      },
+                      child: const SVGIconContainer(
+                        iconPath: SVGIconPaths.profileIcon,
+                      ),
                     ),
                   ],
                 ),
@@ -80,6 +88,9 @@ class HomeScreenState extends State<HomeScreen> {
             alignment: Alignment.bottomCenter,
             child: BodyContainer(
               child: SingleChildScrollView(
+                padding: EdgeInsets.symmetric(
+                  vertical: 32.h,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -92,27 +103,32 @@ class HomeScreenState extends State<HomeScreen> {
                         alpha: (0.5 * 255),
                       ),
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          'Best Seller'.hardCoded,
-                          style: Theme.of(context).textTheme.bodyLarge,
-                        ),
-                        const Spacer(),
-                        Text(
-                          'View All'.hardCoded,
-                          style:
-                              Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                    color: ColorsManager.secondaryColor,
-                                  ),
-                        ),
-                        const GutterSmall(),
-                        const Icon(
-                          Icons.arrow_forward_ios,
-                          color: ColorsManager.secondaryColor,
-                          size: 15,
-                        ),
-                      ],
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Best Seller'.hardCoded,
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                          const Spacer(),
+                          Text(
+                            'View All'.hardCoded,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(
+                                  color: ColorsManager.secondaryColor,
+                                ),
+                          ),
+                          const GutterSmall(),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            color: ColorsManager.secondaryColor,
+                            size: 15,
+                          ),
+                        ],
+                      ),
                     ),
                     const Gutter(),
                     SizedBox(
@@ -120,20 +136,26 @@ class HomeScreenState extends State<HomeScreen> {
                       child: const BestSellerListView(),
                     ),
                     const Gutter(),
-                    const ImageSlider(
-                      isLocal: true,
-                      viewPort: 1,
-                      images: [
-                        ImagePaths.offer,
-                        ImagePaths.offer,
-                        ImagePaths.offer,
-                        ImagePaths.offer,
-                      ],
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
+                      child: const ImageSlider(
+                        isLocal: true,
+                        viewPort: 1,
+                        images: [
+                          ImagePaths.offer,
+                          ImagePaths.offer,
+                          ImagePaths.offer,
+                          ImagePaths.offer,
+                        ],
+                      ),
                     ),
                     const Gutter(),
-                    Text(
-                      'Recommend'.hardCoded,
-                      style: Theme.of(context).textTheme.bodyLarge,
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
+                      child: Text(
+                        'Recommend'.hardCoded,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
                     ),
                     const Gutter(),
                     SizedBox(
@@ -146,6 +168,21 @@ class HomeScreenState extends State<HomeScreen> {
             ),
           )
         ],
+      ),
+      endDrawer: Drawer(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(60),
+            bottomLeft: Radius.circular(60),
+          ),
+        ),
+        child: SafeArea(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(
+              vertical: 32.h,
+            ),
+          )
+        ),
       ),
     );
   }
