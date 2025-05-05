@@ -43,6 +43,7 @@ class DrawerScreen extends StatelessWidget {
               leadingIcon: FontAwesomeIcons.phone,
             ),
             Divider(),
+            Gutter(),
             CustomDrawerListTile(
               title: 'Log Out',
               leadingIcon: FontAwesomeIcons.rightFromBracket,
