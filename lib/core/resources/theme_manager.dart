@@ -131,10 +131,10 @@ abstract class AppTheme {
             fontSize: 12.sp,
           ),
         ),
-
+        dividerColor: ColorsManager.white,
         // List tile
         listTileTheme: ListTileThemeData(
-          tileColor: Colors.white,
+          tileColor: Colors.transparent,
           contentPadding: EdgeInsets.zero,
           enableFeedback: false,
           shape: RoundedRectangleBorder(

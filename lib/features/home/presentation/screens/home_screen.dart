@@ -13,6 +13,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'drawer_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -169,20 +171,14 @@ class HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      endDrawer: Drawer(
-        shape: const RoundedRectangleBorder(
+      endDrawer: const Drawer(
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(60),
             bottomLeft: Radius.circular(60),
           ),
         ),
-        child: SafeArea(
-          child: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(
-              vertical: 32.h,
-            ),
-          )
-        ),
+        child: DrawerScreen(),
       ),
     );
   }
