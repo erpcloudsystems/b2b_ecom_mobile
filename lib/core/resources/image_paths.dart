@@ -22,4 +22,6 @@ abstract class SVGIconPaths {
   static const String cartIcon = "${assets}cart-icon.svg";
   static const String notificationIcon = "${assets}notification-icon.svg";
   static const String profileIcon = "${assets}profile-icon.svg";
+  static const String emptyOrdersIcon =
+      "${assets}empty-orders-icon.svg";
 }

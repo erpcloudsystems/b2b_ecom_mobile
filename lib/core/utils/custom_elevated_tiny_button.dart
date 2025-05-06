@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../global/enums.dart';
 
-class CustomElevatedSmallButton extends StatelessWidget {
-  const CustomElevatedSmallButton({
+class CustomElevatedTinyButton extends StatelessWidget {
+  const CustomElevatedTinyButton({
     super.key,
     this.elevatedButtonStyle = CustomElevatedButtonStyle.primary,
     required this.title,
@@ -24,15 +24,15 @@ class CustomElevatedSmallButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        minimumSize: minimumSize ?? Size(133.w, 36.h),
+        minimumSize: minimumSize ?? Size(100.w, 36.h),
         backgroundColor:
             elevatedButtonStyle == CustomElevatedButtonStyle.primary
                 ? ColorsManager.mainColor
-                : ColorsManager.white,
+                : ColorsManager.mainColor.withAlpha(100),
         foregroundColor:
             elevatedButtonStyle == CustomElevatedButtonStyle.primary
                 ? ColorsManager.white
-                : ColorsManager.black,
+                : ColorsManager.mainColor,
         shape: RoundedRectangleBorder(
           side: const BorderSide(
             color: ColorsManager.mainColor,
@@ -48,7 +48,7 @@ class CustomElevatedSmallButton extends StatelessWidget {
           : Text(
               title,
               style: TextStyle(
-                fontSize: 18.sp,
+                fontSize:  15.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),

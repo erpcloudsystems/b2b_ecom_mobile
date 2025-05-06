@@ -101,8 +101,8 @@ class HomeScreenState extends State<HomeScreen> {
                       child: const CategoriesListView(),
                     ),
                     Divider(
-                      color: ColorsManager.mainColor.withValues(
-                        alpha: (0.5 * 255),
+                      color: ColorsManager.mainColor.withAlpha(
+                        127,
                       ),
                     ),
                     Padding(

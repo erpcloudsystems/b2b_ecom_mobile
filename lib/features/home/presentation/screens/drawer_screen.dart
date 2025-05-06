@@ -1,8 +1,10 @@
 import 'package:class_a_ec/core/resources/colors_managers.dart';
+import 'package:class_a_ec/core/router/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import '../widgets/custom_drawer_list_tile.dart';
 import '../widgets/user_header_widget.dart';
 
@@ -18,33 +20,36 @@ class DrawerScreen extends StatelessWidget {
           vertical: 32.h,
           horizontal: 32.w,
         ),
-        child: const Column(
+        child: Column(
           children: [
-            Gutter.extraLarge(),
-            UserHeaderWidget(),
-            Gutter(),
+            const Gutter.extraLarge(),
+            const UserHeaderWidget(),
+            const Gutter(),
             CustomDrawerListTile(
               title: 'My Order',
               leadingIcon: FontAwesomeIcons.bagShopping,
+              onTap: () {
+                context.push(AppRoutes.orderScreen);
+              },
             ),
-            Divider(),
-            CustomDrawerListTile(
+            const Divider(),
+            const CustomDrawerListTile(
               title: 'My Profile',
               leadingIcon: FontAwesomeIcons.solidUser,
             ),
-            Divider(),
-            CustomDrawerListTile(
+            const Divider(),
+            const CustomDrawerListTile(
               title: 'My Addresses',
               leadingIcon: FontAwesomeIcons.locationDot,
             ),
-            Divider(),
-            CustomDrawerListTile(
+            const Divider(),
+            const CustomDrawerListTile(
               title: 'Contact Us',
               leadingIcon: FontAwesomeIcons.phone,
             ),
-            Divider(),
-            Gutter(),
-            CustomDrawerListTile(
+            const Divider(),
+            const Gutter(),
+            const CustomDrawerListTile(
               title: 'Log Out',
               leadingIcon: FontAwesomeIcons.rightFromBracket,
             ),

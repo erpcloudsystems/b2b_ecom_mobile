@@ -3,6 +3,7 @@ import 'package:class_a_ec/features/authentication/presentation/screens/login_sc
 import 'package:class_a_ec/features/authentication/presentation/screens/sign_up_screen.dart';
 import 'package:class_a_ec/features/home/presentation/screens/home_screen.dart';
 import 'package:class_a_ec/features/onboarding/presentation/screens/onboarding_screen.dart';
+import 'package:class_a_ec/features/order/presentation/screens/order_screen.dart';
 import 'package:class_a_ec/features/welcom/presentation/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -62,6 +63,13 @@ GoRouter goRouter(Ref ref) {
         name: AppRoutes.homeScreen,
         builder: (context, state) {
           return const HomeScreen();
+        },
+      ),
+       GoRoute(
+        path: AppRoutes.orderScreen,
+        name: AppRoutes.orderScreen,
+        builder: (context, state) {
+          return const OrderScreen();
         },
       ),
     ],
