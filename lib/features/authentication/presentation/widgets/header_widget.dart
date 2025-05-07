@@ -4,16 +4,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class HeaderWidget extends StatelessWidget {
-  const HeaderWidget(
-      {super.key,
-      this.title,
-      this.child,
-      this.topPadding,
-      this.isBackButtonVisible = false});
+  const HeaderWidget({
+    super.key,
+    this.title,
+    this.child,
+    this.topPadding,
+    this.isBackButtonVisible = false,
+    this.titleFontSize,
+  });
   final String? title;
   final Widget? child;
   final double? topPadding;
   final bool isBackButtonVisible;
+  final double? titleFontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +34,7 @@ class HeaderWidget extends StatelessWidget {
                   title!,
                   style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                         color: ColorsManager.white,
+                        fontSize: titleFontSize,
                       ),
                 )
               : child,

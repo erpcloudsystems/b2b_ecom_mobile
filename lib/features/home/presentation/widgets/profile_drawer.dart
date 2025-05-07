@@ -5,17 +5,18 @@ import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-import '../widgets/custom_drawer_list_tile.dart';
-import '../widgets/user_header_widget.dart';
+import 'custom_drawer_list_tile.dart';
+import 'user_header_widget.dart';
 
-class DrawerScreen extends StatelessWidget {
-  const DrawerScreen({super.key});
-
+class ProfileDrawer extends StatelessWidget {
+  const ProfileDrawer({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorsManager.secondaryColor.withAlpha(500),
-      body: SingleChildScrollView(
+    return Container(
+      color: ColorsManager.secondaryColor.withAlpha(500),
+      child: SingleChildScrollView(
         padding: EdgeInsets.symmetric(
           vertical: 32.h,
           horizontal: 32.w,

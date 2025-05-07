@@ -4,8 +4,10 @@ import 'package:class_a_ec/core/resources/image_paths.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/body_container.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/header_widget.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/best_seller_list_view.dart';
+import 'package:class_a_ec/features/home/presentation/widgets/cart_drawer.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/categories_list_view.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/image_slider.dart';
+import 'package:class_a_ec/features/home/presentation/widgets/notification_drawer.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/recommended_items_list_view.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/search_container.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/svg_icon_container.dart';
@@ -13,7 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'drawer_screen.dart';
+import '../widgets/profile_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -24,7 +26,12 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
+  int _currentDrawerIndex = 0;
+  final List<Widget> _drawerWidgets = [
+    const ProfileDrawer(),
+    const CartDrawer(),
+    const NotificationDrawer(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,16 +48,35 @@ class HomeScreenState extends State<HomeScreen> {
                   children: [
                     const SearchContainer(),
                     const GutterLarge(),
-                    const SVGIconContainer(
-                      iconPath: SVGIconPaths.cartIcon,
-                    ),
-                    const GutterSmall(),
-                    const SVGIconContainer(
-                      iconPath: SVGIconPaths.notificationIcon,
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _currentDrawerIndex = 1;
+                        });
+                        _scaffoldKey.currentState?.openEndDrawer();
+                      },
+                      child: const SVGIconContainer(
+                        iconPath: SVGIconPaths.cartIcon,
+                      ),
                     ),
                     const GutterSmall(),
                     GestureDetector(
                       onTap: () {
+                        setState(() {
+                          _currentDrawerIndex = 2;
+                        });
+                        _scaffoldKey.currentState?.openEndDrawer();
+                      },
+                      child: const SVGIconContainer(
+                        iconPath: SVGIconPaths.notificationIcon,
+                      ),
+                    ),
+                    const GutterSmall(),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _currentDrawerIndex = 0;
+                        });
                         _scaffoldKey.currentState?.openEndDrawer();
                       },
                       child: const SVGIconContainer(
@@ -171,14 +197,15 @@ class HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      endDrawer: const Drawer(
-        shape: RoundedRectangleBorder(
+      endDrawer: Drawer(
+        width: MediaQuery.of(context).size.width * 0.85,
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(60),
             bottomLeft: Radius.circular(60),
           ),
         ),
-        child: DrawerScreen(),
+        child: _drawerWidgets[_currentDrawerIndex],
       ),
     );
   }

@@ -4,6 +4,9 @@ import 'package:class_a_ec/features/authentication/presentation/screens/sign_up_
 import 'package:class_a_ec/features/home/presentation/screens/home_screen.dart';
 import 'package:class_a_ec/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:class_a_ec/features/order/presentation/screens/order_screen.dart';
+import 'package:class_a_ec/features/product/data/models/category_model.dart';
+import 'package:class_a_ec/features/product/presentation/screens/product_details_screen.dart';
+import 'package:class_a_ec/features/product/presentation/screens/product_screen.dart';
 import 'package:class_a_ec/features/welcom/presentation/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -65,11 +68,27 @@ GoRouter goRouter(Ref ref) {
           return const HomeScreen();
         },
       ),
-       GoRoute(
+      GoRoute(
         path: AppRoutes.orderScreen,
         name: AppRoutes.orderScreen,
         builder: (context, state) {
           return const OrderScreen();
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.productsScreen,
+        name: AppRoutes.productsScreen,
+        builder: (context, state) {
+          return ProductScreen(
+            categoryModel: state.extra as CategoryModel,
+          );
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.productDetailsScreen,
+        name: AppRoutes.productDetailsScreen,
+        builder: (context, state) {
+          return const ProductDetailsScreen();
         },
       ),
     ],
