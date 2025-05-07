@@ -39,7 +39,7 @@ class _OrderScreenState extends State<OrderScreen> {
                   const OrdersFilterWidget(),
                   const Gutter(),
                   if (orderList.isNotEmpty) const OrdersListWidget(),
-                  if (orderList.isEmpty) const EmptyOrdersWidget()
+                  if (orderList.isEmpty) const EmptyOrdersWidget(),
                 ],
               ),
             ),
