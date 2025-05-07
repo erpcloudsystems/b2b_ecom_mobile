@@ -1,8 +1,10 @@
+import 'package:class_a_ec/core/utils/custom_search_container.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/body_container.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/header_widget.dart';
 import 'package:class_a_ec/features/product/data/models/category_model.dart';
 import 'package:class_a_ec/features/product/presentation/widgets/product_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gutter/flutter_gutter.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({super.key, required this.categoryModel});
@@ -20,14 +22,26 @@ class ProductScreen extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: BodyContainer(
-              child: ListView.builder(
+              child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  vertical: 36,
+                  horizontal: 36,
+                  vertical: 22,
                 ),
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  return const ProductCard();
-                },
+                child: Column(
+                  children: [
+                    CustomSearchContainer(onChanged: (value) {}),
+                    const GutterLarge(),
+                    Expanded(
+                      child: ListView.builder(
+                        padding: EdgeInsets.zero,
+                        itemCount: 3,
+                        itemBuilder: (context, index) {
+                          return const ProductCard();
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
