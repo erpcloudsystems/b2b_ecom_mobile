@@ -1,6 +1,8 @@
 import 'package:class_a_ec/core/resources/colors_managers.dart';
 import 'package:class_a_ec/core/resources/image_paths.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/features/product/presentation/widgets/circle_button.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 
@@ -29,13 +31,13 @@ class CartItemWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Strawberry Shake',
+                    'Strawberry Shake'.tr(),
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           color: Colors.white,
                         ),
                   ),
                   Text(
-                    '\$2.99',
+                    '2.99 ${StringsManager.egp}',
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                           color: Colors.white,
                         ),

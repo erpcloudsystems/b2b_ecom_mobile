@@ -1,5 +1,6 @@
 import 'package:class_a_ec/core/resources/colors_managers.dart';
 import 'package:class_a_ec/core/resources/image_paths.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -19,9 +20,9 @@ class SearchContainer extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
-            'Search',
-            style: TextStyle(color: Colors.black),
+          Text(
+            StringsManager.search,
+            style: const TextStyle(color: Colors.black),
           ),
           Container(
             padding: const EdgeInsets.all(6),

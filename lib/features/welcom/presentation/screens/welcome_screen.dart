@@ -1,8 +1,8 @@
-import 'package:class_a_ec/core/extensions/string_extension.dart';
 import 'package:class_a_ec/core/global/shared_preference_provider.dart';
 import 'package:class_a_ec/core/resources/colors_managers.dart';
 import 'package:class_a_ec/core/resources/constance.dart';
 import 'package:class_a_ec/core/resources/image_paths.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/core/router/app_routes.dart';
 import 'package:class_a_ec/core/utils/custom_elevated_medium_button.dart';
 import 'package:flutter/material.dart';
@@ -37,18 +37,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             SizedBox(
               width: 295.w,
               child: Text(
-                'Class A Company is specialized in the distribution of imported food products and dry storage goods.'
-                    .hardCoded
-                    .hardCoded,
+                StringsManager.companyDescription,
                 style: Theme.of(context).textTheme.bodyMedium,
                 textAlign: TextAlign.center,
               ),
             ),
             const GutterExtraLarge(),
             CustomElevatedMediumButton(
-              title: 'Login'.hardCoded,
+              title: StringsManager.login,
               onPressed: () {
-                if (isFirstTimeUser) {
+                if (true) {
                   context.pushReplacementNamed(AppRoutes.onboardingScreen);
                 } else {
                   context.pushReplacementNamed(AppRoutes.loginScreen);
@@ -58,9 +56,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             ),
             const GutterSmall(),
             CustomElevatedMediumButton(
-              title: 'Sign UP'.hardCoded,
+              title: StringsManager.signUp,
               onPressed: () {
-                if (isFirstTimeUser) {
+                if (true) {
                   context.pushReplacementNamed(AppRoutes.onboardingScreen);
                 } else {
                   context.pushReplacementNamed(AppRoutes.signUpScreen);

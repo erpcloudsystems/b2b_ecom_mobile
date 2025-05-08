@@ -1,4 +1,4 @@
-import 'package:class_a_ec/core/extensions/string_extension.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/features/order/presentation/widgets/order_status_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
@@ -11,7 +11,7 @@ class OrdersFilterWidget extends StatefulWidget {
 }
 
 class OrdersFilterWidgetState extends State<OrdersFilterWidget> {
-  String selectedStatus = 'Pending';
+  String selectedStatus = StringsManager.pending;
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +21,12 @@ class OrdersFilterWidgetState extends State<OrdersFilterWidget> {
           child: GestureDetector(
             onTap: () {
               setState(() {
-                selectedStatus = 'Pending';
+                selectedStatus = StringsManager.pending;
               });
             },
             child: OrderStatusCard(
-              status: 'Pending'.hardCoded,
-              isSelected: selectedStatus == 'Pending',
+              status: StringsManager.pending,
+              isSelected: selectedStatus == StringsManager.pending,
             ),
           ),
         ),
@@ -35,12 +35,12 @@ class OrdersFilterWidgetState extends State<OrdersFilterWidget> {
           child: GestureDetector(
             onTap: () {
               setState(() {
-                selectedStatus = 'Completed';
+                selectedStatus = StringsManager.completed;
               });
             },
             child: OrderStatusCard(
-              status: 'Completed'.hardCoded,
-              isSelected: selectedStatus == 'Completed',
+              status: StringsManager.completed,
+              isSelected: selectedStatus == StringsManager.completed,
             ),
           ),
         ),
@@ -49,12 +49,12 @@ class OrdersFilterWidgetState extends State<OrdersFilterWidget> {
           child: GestureDetector(
             onTap: () {
               setState(() {
-                selectedStatus = 'Canceled';
+                selectedStatus = StringsManager.canceled;
               });
             },
             child: OrderStatusCard(
-              status: 'Canceled'.hardCoded,
-              isSelected: selectedStatus == 'Canceled',
+              status: StringsManager.canceled,
+              isSelected: selectedStatus == StringsManager.canceled,
             ),
           ),
         ),

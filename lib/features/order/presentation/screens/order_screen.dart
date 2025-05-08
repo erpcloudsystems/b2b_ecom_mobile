@@ -1,4 +1,4 @@
-import 'package:class_a_ec/core/extensions/string_extension.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/body_container.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/header_widget.dart';
 import 'package:class_a_ec/features/order/data/models/order_model.dart';
@@ -23,7 +23,7 @@ class _OrderScreenState extends State<OrderScreen> {
         body: Stack(
       children: [
         HeaderWidget(
-          title: 'My Orders'.hardCoded,
+          title: StringsManager.myOrders,
           isBackButtonVisible: true,
         ),
         Align(

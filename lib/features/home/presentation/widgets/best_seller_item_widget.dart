@@ -1,4 +1,5 @@
 import 'package:class_a_ec/core/resources/colors_managers.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerItemWidget extends StatelessWidget {
@@ -27,7 +28,7 @@ class BestSellerItemWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
             ),
             child: Text(
-              '\$$price',
+              '$price ${StringsManager.egp}',
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Colors.white,
                   ),

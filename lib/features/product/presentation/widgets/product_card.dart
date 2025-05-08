@@ -1,5 +1,7 @@
 import 'package:class_a_ec/core/resources/image_paths.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/core/router/app_routes.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:go_router/go_router.dart';
@@ -26,20 +28,22 @@ class ProductCard extends StatelessWidget {
             ),
           ),
           const Gutter(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Mexican appetizer',
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-              Text(
-                '\$20.00',
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: Theme.of(context).primaryColor,
-                    ),
-              ),
-            ],
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Mexican appetizer'.tr(),
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                Text(
+                  '20.00 ${StringsManager.egp}',
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        color: Theme.of(context).primaryColor,
+                      ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

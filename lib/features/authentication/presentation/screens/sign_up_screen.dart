@@ -1,5 +1,5 @@
-import 'package:class_a_ec/core/extensions/string_extension.dart';
 import 'package:class_a_ec/core/resources/colors_managers.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/core/router/app_routes.dart';
 import 'package:class_a_ec/core/utils/custom_elevated_medium_button.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/body_container.dart';
@@ -19,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
       body: Stack(
         children: [
           HeaderWidget(
-            title: 'New Account'.hardCoded,
+            title: StringsManager.newAccount,
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -35,12 +35,14 @@ class SignUpScreen extends StatelessWidget {
                     const Gutter(),
                     Column(
                       children: [
-                        Text('By continuing, you agree to'.hardCoded),
+                        Text(
+                          StringsManager.byContinuingYouAgreeTo,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Terms of Use'.hardCoded,
+                             StringsManager.termsOfUse,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium
@@ -49,10 +51,12 @@ class SignUpScreen extends StatelessWidget {
                                   ),
                             ),
                             const GutterTiny(),
-                            Text('and'.hardCoded),
+                            Text(
+                              StringsManager.and,
+                            ),
                             const GutterTiny(),
                             Text(
-                              'Privacy Policy'.hardCoded,
+                              StringsManager.privacyPolicy,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium
@@ -66,9 +70,9 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     const Gutter(),
                     CustomElevatedMediumButton(
-                      title: 'Sign Up'.hardCoded,
+                      title: StringsManager.signUp,
                       onPressed: () {
-                        context.pushReplacementNamed(AppRoutes.homeScreen);
+                        context.pushReplacementNamed(AppRoutes.loginScreen);
                       },
                     ),
                     const Gutter(),
@@ -79,10 +83,12 @@ class SignUpScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('Already have an account?'.hardCoded),
+                          Text(
+                            StringsManager.alreadyHaveAnAccount,
+                          ),
                           const GutterTiny(),
                           Text(
-                            'Login'.hardCoded,
+                            StringsManager.login,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!

@@ -1,5 +1,5 @@
-import 'package:class_a_ec/core/extensions/string_extension.dart';
 import 'package:class_a_ec/core/resources/image_paths.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/core/utils/custom_elevated_small_button.dart';
 import 'package:class_a_ec/features/onboarding/presentation/widgets/onboarding_container_content.dart';
 import 'package:class_a_ec/features/onboarding/presentation/widgets/stepper_widget.dart';
@@ -23,18 +23,15 @@ class OnboardingContainer extends StatelessWidget {
   ];
 
   final List<String> onboardingTitles = [
-    'Order for Food'.hardCoded,
-    'Easy Payment'.hardCoded,
-    'Fast Delivery'.hardCoded,
+    StringsManager.orderForFood,
+    StringsManager.easyPayment,
+    StringsManager.fastDelivery,
   ];
 
   final List<String> onboardingDescriptions = [
-    'Lorem ipsum dolor sit amet, conse ctetur  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.'
-        .hardCoded,
-    'Lorem ipsum dolor sit amet, conse ctetur  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.'
-        .hardCoded,
-    'Lorem ipsum dolor sit amet, conse ctetur  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.'
-        .hardCoded,
+    StringsManager.randomText,
+    StringsManager.randomText,
+    StringsManager.randomText,
   ];
 
   @override
@@ -63,7 +60,7 @@ class OnboardingContainer extends StatelessWidget {
           ),
           const Gutter(),
           CustomElevatedSmallButton(
-            title: 'Next'.hardCoded,
+            title: StringsManager.next,
             onPressed: incrementCurrentIndex,
           ),
         ],

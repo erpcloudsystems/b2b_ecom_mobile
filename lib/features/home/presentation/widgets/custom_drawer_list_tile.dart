@@ -1,4 +1,3 @@
-import 'package:class_a_ec/core/extensions/string_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,7 +21,7 @@ class CustomDrawerListTile extends StatelessWidget {
       child: ListTile(
         textColor: ColorsManager.white,
         title: Text(
-          title.hardCoded,
+          title,
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
               color: ColorsManager.white,
               fontSize: 22.sp,

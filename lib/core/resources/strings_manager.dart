@@ -1,153 +1,88 @@
-class StringsManager {
-  static const String appName = "ECS";
-  static const String offlineErrorMessage =
-      'There is a problem with your internet connection';
-  static const String unknownCachingFailureMessage =
-      'There is a problem while caching user data';
-  static const String emptyCacheFailureMessage = 'There is no cached user data';
-  static const String erpCloudSystems = 'ERPCloud.Systems';
-  static const String dashboard = 'Dashboard';
-  static const String tasks = 'Tasks';
-  static const String create = 'Create';
-  static const String profile = 'Profile';
-  static const String goodMorning = 'Good Morning,';
-  static const String goodAfternoon = 'Good Afternoon,';
-  static const String goodEvening = 'Good Evening,';
-  static const String checkIn = 'Check In';
-  static const String yourCheckInAt = 'Your check in at';
-  static const String yourCheckOutAt = 'Your check out at';
-  static const String checkOut = 'Check Out';
-  static const String loginTitle = "Let's sign you in";
-  static const String loginSubTitle = 'Enter below details to continue';
-  static const String login = 'Login';
-  static const String tryOurDemoApp = 'Try Our Demo App';
-  static const String continueAsDemoUser = 'Continue as Demo User';
-  static const String myProfile = 'My Profile';
-  static const String id = 'ID';
-  static const String phoneNumber = 'Phone number';
-  static const String address = 'Address';
-  static const String department = 'Department';
-  static const String editProfile = 'Edit Profile';
-  static const String updateProfilePicture = 'Update profile picture';
-  static const String email = 'Email';
-  static const String changeYourPassword = 'Change your password';
-  static const String currentPassword = 'Current password';
-  static const String newPassword = 'New password';
-  static const String confirmNewPassword = 'Confirm new password';
-  static const String changePassword = 'Change password';
-  static const String language = 'Language';
-  static const String chooseYourLanguage = 'Choose your language';
-  static const String english = 'English';
-  static const String arabic = 'Arabic';
-  static const String cancel = 'Cancel';
-  static const String save = 'Save';
-  static const String seeAll = 'See All';
-  static const String myTasks = 'My Tasks';
-  static const String filterTasks = 'Filter Tasks';
-  static const String filterTimeSheet = 'Filter Timesheet';
-  static const String emptyValidator = 'This field is empty';
-  static const String project = 'Project';
-  static const String status = 'Status';
-  static const String priority = 'Priority';
-  static const String clear = 'Clear';
-  static const String possibleEndDate = 'Possible End Date';
-  static const String endDate = 'End Date';
-  static const String startDate = 'Start Date';
-  static const String createdBy = 'Created By';
-  static const String assignTo = 'Assign To';
-  static const String timeSheet = 'Time Sheet';
-  static const String messages = 'Messages';
-  static const String createLeave = 'Create Leave';
-  static const String createTask = 'Create Task';
-  static const String createIssue = 'Create Issue';
-  static const String title = 'Title';
-  static const String details = 'Details';
-  static const String task = 'Task';
-  static const String activity = 'Activity';
-  static const String fromDate = 'From Date';
-  static const String toDate = 'TO Date';
-  static const String notes = 'Notes';
-  static const String submit = 'Submit';
-  static const String edit = 'Edit';
-  static const String createTimeSheet = 'Create Timesheet';
-  static const String fromTime = 'From Time';
-  static const String toTime = 'To Time';
-  static const String myProjects = 'My Projects';
-  static const String filterProjects = 'Filter Projects';
-  static const String projectType = 'Project Type';
-  static const String myIssues = 'My Issues';
-  static const String filterIssues = 'Filter Issues';
-  static const String commentHere = 'Comment here...';
-  static const String send = 'Send';
-  static const String raisedBy = 'Raised By';
-  static const String ticketNo = 'Ticket No';
-  static const String description = 'Description';
-  static const String leaveApplication = 'Leave Application';
-  static const String leaveBalance = 'Leave Balance';
-  static const String checkYourLeaveBalance = 'Check your leave balance';
-  static const String myLeaves = 'My Leaves';
-  static const String filtersLeaves = 'Filters Leaves';
-  static const String leaveType = 'Leave Type';
-  static const String typeReason = 'Type reason here....';
-  static const String emailValidator = 'Please enter a valid email';
-  static const String password = 'Password';
-  static const String defaultErrorMessage = 'Something went wrong';
-  static const String noErrorMessage = 'No error';
-  static const String forgotPassword = 'Forgot password';
-  static const String forgotPasswordDescription =
-      "No worries, we'll send you reset instructions";
-  static const String enterYourEmail = 'Enter your email';
-  static const String resetPassword = 'Reset password';
-  static const String backToLogin = 'Back to login';
-  static const String success = 'Success';
-  static const String checkYourEmail =
-      'Check your email for reset password instructions';
-  static const String ok = 'OK';
-  static const String notData = 'No data';
-  static const String logout = 'Logout';
-  static const String passwordChangedSuccessfully =
-      'Password changed successfully';
-  static const String newPasswordDoesNotMatch = 'New password dose not match';
-  static const String duration = 'Duration';
-  static const String taskCreatedSuccessfully = 'Task created successfully';
-  static const String taskEditedSuccessfully = 'Task edited successfully';
-  static const String search = 'Search';
-  static const String createdSuccessfully = 'Created successfully';
-  static const String totalWorkingHours = 'Total Working Hours';
-  static const String addTimeLog = 'Add time log';
-  static const String add = 'Add';
-  static const String newTimeLog = 'New Time Log';
-  static const String openingDate = 'Opening Date';
-  static const String youHaveToAddAtLeastOneTimeLog =
-      'You have to add at least one time log';
-  static const String validateTimeLog =
-      'You have to add end time to all of your time logs';
-  static const String areYouSureToWorking =
-      'Are you sure to working on this task!';
-  static const String timeSheetUpdatedSuccessfully =
-      'TimeSheet updated successfully';
-  static const String users = 'Users';
-  static const String completed = "Completed";
-  static const String overdue = "Overdue";
-  static const String open = "Open";
-  static const String working = "Working";
-  static const String pendingReview = "Pending Review";
-  static const String taskNo = "Task No";
-  static const String subject = "Subject";
-  static const String notification = "Notification";
-  static const String ecsDashboard = 'ECS Dashboard';
-  static const String designation = 'Designation';
-  static const String noWorkingTasks = 'No working tasks';
-  static const String assignedToMe = 'Assigned to me';
-  static const String createdByMe = 'Created by me';
-  static const String hours = 'Hours';
-  static const String comments = 'Comments';
-  static const String noMoreData = 'No more data';
-  static const String from = 'From';
-  static const String to = 'To';
-  static const String issueUpdatedSuccessfully = 'Issue updated successfully';
-  static const String tryOurLatestAPKs = 'Try our latest APKs';
-  static const String user = 'User';
-  static const String workingTasks = 'Working Tasks';
-  static const String attachments = 'Attachments';
+// From ECS
+import 'package:easy_localization/easy_localization.dart';
+
+abstract class StringsManager {
+  static String get login => "Login".tr();
+  static String get welcome => "Welcome".tr();
+  static String get forgetPassword => "Forget Password?".tr();
+  static String get rememberMe => "Remember Me".tr();
+  static String get doNotHaveAnAccount => "Don't have an account?".tr();
+  static String get signUp => "Sign Up".tr();
+  static String get newAccount => "New account".tr();
+  static String get byContinuingYouAgreeTo =>
+      'By continuing, you agree to'.tr();
+  static String get termsOfUse => "Terms of Use".tr();
+  static String get and => "and".tr();
+  static String get privacyPolicy => "Privacy Policy".tr();
+  static String get alreadyHaveAnAccount => "Already have an account?".tr();
+  static String get mobileNumber => "Mobile number".tr();
+  static String get password => "Password".tr();
+  static String get fullName => "Full name".tr();
+  static String get facilityName => "Facility name".tr();
+  static String get facilityType => "Facility type".tr();
+  static String get type => "Type".tr();
+  static String get goodMorning => "Good morning".tr();
+  static String get riseAndShineItIsOrderTime =>
+      "Rise and shine, it is order time".tr();
+  static String get bestSeller => "Best Seller".tr();
+  static String get viewAll => "View All".tr();
+  static String get recommended => "Recommended".tr();
+  static String get youHave => "You have".tr();
+  static String get itemsInTheCart => "items in the cart".tr();
+  static String get total => "Total".tr();
+  static String get minimumOrder => "Minimum order".tr();
+  static String get earnedPoints => "Earned points".tr();
+  static String get egp => "EGP".tr();
+  static String get checkout => "Checkout".tr();
+  static String get orderForFood => "Order for food".tr();
+  static String get easyPayment => "Easy payment".tr();
+  static String get fastDelivery => "Fast delivery".tr();
+  static String get randomText =>
+      "Lorem ipsum dolor sit amet, conse ctetur  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+          .tr();
+  static String get next => "Next".tr();
+  static String get myOrders => "My Orders".tr();
+  static String get youDoNotHaveAnyActiveOrdersAtThisTime =>
+      "You don't have any active orders at this time".tr();
+  static String get pending => "Pending".tr();
+  static String get completed => "Completed".tr();
+  static String get canceled => "Canceled".tr();
+  static String get unitOfMeasure => "Unit of measure".tr();
+  static String get piece => "Piece".tr();
+  static String get box => "Box".tr();
+  static String get litre => "Litre".tr();
+  static String get addToCart => "Add to cart".tr();
+  static String get companyDescription =>
+      "Class A Company is specialized in the distribution of imported food products and dry storage goods."
+          .tr();
+  static String get language => "Language".tr();
+  static String get appName => "Class A".tr();
+  static String get offlineErrorMessage =>
+      'There is a problem with your internet connection'.tr();
+  static String get unknownCachingFailureMessage =>
+      'There is a problem while caching user data'.tr();
+  static String get emptyCacheFailureMessage =>
+      'There is no cached user data'.tr();
+
+  static String get emptyValidator => 'This field is empty'.tr();
+
+  static String get emailValidator => 'Please enter a valid email'.tr();
+
+  static String get notData => 'No data'.tr();
+  static String get logout => 'Logout'.tr();
+  static String get passwordChangedSuccessfully =>
+      'Password changed successfully'.tr();
+  static String get newPasswordDoesNotMatch =>
+      'New password dose not match'.tr();
+  static String get search => 'Search'.tr();
+
+  static String get noMoreData => 'No more data'.tr();
+  static String get title => 'Title'.tr();
+  static String get myProfile => 'My Profile'.tr();
+  static String get myAddresses => 'My Addresses'.tr();
+  static String get contactUs => 'Contact Us'.tr();
+  static String get cart => 'Cart'.tr();
+  static String get cancelOrder => 'Cancel Order'.tr();
+  static String get items => 'Items'.tr();
+  static String get trackDriver => 'Track driver'.tr();
 }

@@ -1,11 +1,12 @@
-import 'package:class_a_ec/core/extensions/string_extension.dart';
 import 'package:class_a_ec/core/resources/colors_managers.dart';
 import 'package:class_a_ec/core/resources/image_paths.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/core/utils/custom_divider.dart';
 import 'package:class_a_ec/core/utils/custom_elevated_medium_button.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/body_container.dart';
 import 'package:class_a_ec/features/product/presentation/widgets/circle_button.dart';
 import 'package:class_a_ec/features/product/presentation/widgets/custom_choice_chip.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,7 +40,7 @@ class ProductDetailsScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Mexican Appetizer',
+                  'Mexican appetizer'.tr(),
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         color: ColorsManager.white,
                       ),
@@ -80,7 +81,7 @@ class ProductDetailsScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '\$20.00',
+                          '20.00 ${StringsManager.egp}',
                           style:
                               Theme.of(context).textTheme.titleLarge!.copyWith(
                                     color: Theme.of(context).primaryColor,
@@ -113,25 +114,30 @@ class ProductDetailsScreen extends StatelessWidget {
                     const CustomDivider(),
                     const GutterTiny(),
                     Text(
-                      'Mexican appetizer',
+                      'Mexican appetizer'.tr(),
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     Text(
-                      'Marinated in a rich blend of herbs and spices, then grilled to perfection, served with a side of zesty dipping sauce.',
+                      'Marinated in a rich blend of herbs and spices, then grilled to perfection, served with a side of zesty dipping sauce.'
+                          .tr(),
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     const Gutter(),
                     Text(
-                      'Unit of Measure'.hardCoded,
+                      StringsManager.unitOfMeasure,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
-                    const CustomChoiceChip(
-                      values: ['Piece', 'Box', 'Litre'],
+                    CustomChoiceChip(
+                      values: [
+                        StringsManager.piece,
+                        StringsManager.box,
+                        StringsManager.litre
+                      ],
                     ),
                     const GutterLarge(),
                     Center(
                       child: CustomElevatedMediumButton(
-                        title: 'Add to cart'.hardCoded,
+                        title: StringsManager.addToCart,
                         onPressed: () {},
                       ),
                     ),

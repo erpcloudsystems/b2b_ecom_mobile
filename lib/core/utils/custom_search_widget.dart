@@ -48,14 +48,14 @@ class _CustomSearchWidgetState extends State<CustomSearchWidget> {
           FocusScope.of(context).unfocus();
         },
         textAlignVertical: TextAlignVertical.bottom,
-        decoration: const InputDecoration(
+        decoration: InputDecoration(
           hintText: StringsManager.search,
           border: InputBorder.none,
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,
           errorBorder: InputBorder.none,
           disabledBorder: InputBorder.none,
-          prefixIcon: Icon(
+          prefixIcon: const Icon(
             Icons.search,
           ),
         ),

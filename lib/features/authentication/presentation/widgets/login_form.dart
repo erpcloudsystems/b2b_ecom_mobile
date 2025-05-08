@@ -1,4 +1,4 @@
-import 'package:class_a_ec/core/extensions/string_extension.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/core/utils/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
@@ -13,11 +13,11 @@ class LoginForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomTextFormField(
-            title: 'Mobile number'.hardCoded,
+            title: StringsManager.mobileNumber,
           ),
           const Gutter(),
           CustomTextFormField(
-            title: 'Password'.hardCoded,
+            title: StringsManager.password,
             isPassword: true,
           ),
         ],

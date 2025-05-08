@@ -1,6 +1,6 @@
-import 'package:class_a_ec/core/extensions/string_extension.dart';
 import 'package:class_a_ec/core/resources/colors_managers.dart';
 import 'package:class_a_ec/core/resources/image_paths.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_svg/svg.dart';
@@ -23,7 +23,7 @@ class EmptyOrdersWidget extends StatelessWidget {
           ),
           const GutterLarge(),
           Text(
-            "You don't have any active orders at this time".hardCoded,
+            StringsManager.youDoNotHaveAnyActiveOrdersAtThisTime,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   color: ColorsManager.mainColor,

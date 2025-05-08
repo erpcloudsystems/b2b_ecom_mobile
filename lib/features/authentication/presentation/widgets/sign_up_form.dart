@@ -1,4 +1,4 @@
-import 'package:class_a_ec/core/extensions/string_extension.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/core/utils/custom_drop_down_widget.dart';
 import 'package:class_a_ec/core/utils/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -14,29 +14,31 @@ class SignUpForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomTextFormField(
-            title: 'Full name'.hardCoded,
+            title: StringsManager.fullName,
           ),
           const Gutter(),
           CustomTextFormField(
-            title: 'Mobile number'.hardCoded,
+            title: StringsManager.mobileNumber,
           ),
           const Gutter(),
           CustomTextFormField(
-            title: 'Password'.hardCoded,
+            title: StringsManager.password,
             isPassword: true,
           ),
           const Gutter(),
-          CustomTextFormField(
-            title: 'Facility name'.hardCoded,
-          ),
+          CustomTextFormField(title: StringsManager.facilityName),
           const Gutter(),
           Text(
-            'Facility type'.hardCoded,
+            StringsManager.facilityType,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           const GutterTiny(),
-          const CustomDropDownFormField(
-            dropDownList: ['Type 1', 'Type 2', 'Type 3'],
+          CustomDropDownFormField(
+            dropDownList: [
+              StringsManager.type,
+              StringsManager.type,
+              StringsManager.type
+            ],
           ),
           const Gutter(),
         ],

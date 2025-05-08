@@ -3,6 +3,7 @@ import 'package:class_a_ec/features/authentication/presentation/widgets/body_con
 import 'package:class_a_ec/features/authentication/presentation/widgets/header_widget.dart';
 import 'package:class_a_ec/features/product/data/models/category_model.dart';
 import 'package:class_a_ec/features/product/presentation/widgets/product_card.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 
@@ -15,8 +16,8 @@ class ProductScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          const HeaderWidget(
-            title: 'Category title',
+          HeaderWidget(
+            title: 'Category title'.tr(),
             isBackButtonVisible: true,
           ),
           Align(
@@ -38,7 +39,7 @@ class ProductScreen extends StatelessWidget {
                           crossAxisCount: 2,
                           mainAxisSpacing: 20,
                           crossAxisSpacing: 20,
-                          childAspectRatio: 0.7,
+                          childAspectRatio: 0.65,
                         ),
                         padding: EdgeInsets.zero,
                         itemCount: 8,

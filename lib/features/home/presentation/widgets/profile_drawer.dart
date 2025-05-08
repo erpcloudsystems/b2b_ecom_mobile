@@ -1,7 +1,6 @@
 import 'package:class_a_ec/core/resources/colors_managers.dart';
 import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/core/router/app_routes.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,30 +29,30 @@ class ProfileDrawer extends StatelessWidget {
             const UserHeaderWidget(),
             const Gutter(),
             CustomDrawerListTile(
-              title: 'My Order',
+              title: StringsManager.myOrders,
               leadingIcon: FontAwesomeIcons.bagShopping,
               onTap: () {
                 context.push(AppRoutes.orderScreen);
               },
             ),
             const Divider(),
-            const CustomDrawerListTile(
-              title: 'My Profile',
+            CustomDrawerListTile(
+              title: StringsManager.myProfile,
               leadingIcon: FontAwesomeIcons.solidUser,
             ),
             const Divider(),
-            const CustomDrawerListTile(
-              title: 'My Addresses',
+            CustomDrawerListTile(
+              title: StringsManager.myAddresses,
               leadingIcon: FontAwesomeIcons.locationDot,
             ),
             const Divider(),
-            const CustomDrawerListTile(
-              title: 'Contact Us',
+            CustomDrawerListTile(
+              title: StringsManager.contactUs,
               leadingIcon: FontAwesomeIcons.phone,
             ),
             const Divider(),
             CustomDrawerListTile(
-              title: StringsManager.language.tr(),
+              title: StringsManager.language,
               // Switch language icon
               leadingIcon: FontAwesomeIcons.globe,
               onTap: () => showModalBottomSheet(
@@ -66,8 +65,8 @@ class ProfileDrawer extends StatelessWidget {
             ),
             const Divider(),
             const Gutter(),
-            const CustomDrawerListTile(
-              title: 'Log Out',
+            CustomDrawerListTile(
+              title: StringsManager.logout,
               leadingIcon: FontAwesomeIcons.rightFromBracket,
             ),
           ],

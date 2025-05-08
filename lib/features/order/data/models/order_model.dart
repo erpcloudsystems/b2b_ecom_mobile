@@ -1,4 +1,5 @@
 import 'package:class_a_ec/core/resources/image_paths.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class OrderModel {
   final String title;
@@ -17,10 +18,10 @@ class OrderModel {
 
 List<OrderModel> orderList = [
   OrderModel(
-    title: 'Strawberry shake',
+    title: 'Strawberry Shake'.tr(),
     date: '29 Nov, 01:20 pm',
     image: ImagePaths.bestSeller,
-    price: '\$20.00',
+    price: '20.00',
     itemsNumber: '2',
   ),
 ];

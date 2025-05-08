@@ -13,12 +13,14 @@ class CustomElevatedTinyButton extends StatelessWidget {
     required this.onPressed,
     this.isLoading = false,
     this.minimumSize,
+    this.fontSize,
   });
   final CustomElevatedButtonStyle elevatedButtonStyle;
   final String title;
   final VoidCallback? onPressed;
   final bool isLoading;
   final Size? minimumSize;
+  final double? fontSize;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -48,7 +50,7 @@ class CustomElevatedTinyButton extends StatelessWidget {
           : Text(
               title,
               style: TextStyle(
-                fontSize:  15.sp,
+                fontSize: fontSize ?? 15.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),

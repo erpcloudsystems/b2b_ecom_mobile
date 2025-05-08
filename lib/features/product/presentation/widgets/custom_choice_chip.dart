@@ -1,9 +1,10 @@
 import 'package:class_a_ec/core/resources/colors_managers.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final selectedUOMProvider = StateProvider<String>((ref) {
-  return 'Piece';
+  return 'Piece'.tr();
 });
 
 class CustomChoiceChip extends ConsumerStatefulWidget {

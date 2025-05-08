@@ -1,5 +1,5 @@
-import 'package:class_a_ec/core/extensions/string_extension.dart';
 import 'package:class_a_ec/core/resources/colors_managers.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/core/utils/custom_divider.dart';
 import 'package:class_a_ec/core/utils/custom_elevated_medium_button.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/cart_info_row.dart';
@@ -31,7 +31,7 @@ class CartDrawer extends StatelessWidget {
                 Container(
                   width: 40,
                   height: 40,
-                  margin: const EdgeInsets.only(right: 8),
+                  margin: const EdgeInsets.symmetric(horizontal: 8),
                   decoration: const BoxDecoration(
                     color: Colors.white,
                     shape: BoxShape.circle,
@@ -42,7 +42,7 @@ class CartDrawer extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Cart',
+                  StringsManager.cart,
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         color: Colors.white,
                       ),
@@ -53,11 +53,29 @@ class CartDrawer extends StatelessWidget {
             const CustomDivider(),
             const Gutter(),
             if (true) ...[
-              Text(
-                'You have 2  items in the cart'.hardCoded,
-                style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                      color: Colors.white,
-                    ),
+              Row(
+                children: [
+                  Text(
+                    StringsManager.youHave,
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          color: Colors.white,
+                        ),
+                  ),
+                  const GutterTiny(),
+                  Text(
+                    '2',
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          color: Colors.white,
+                        ),
+                  ),
+                  const GutterTiny(),
+                  Text(
+                    StringsManager.itemsInTheCart,
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          color: Colors.white,
+                        ),
+                  ),
+                ],
               ),
               const Gutter(),
               ListView.builder(
@@ -71,21 +89,21 @@ class CartDrawer extends StatelessWidget {
               ),
               const GutterLarge(),
               CartInfoRow(
-                title: 'Total'.hardCoded,
-                value: '\$20.00',
+                title: StringsManager.total,
+                value: '20.00 ${StringsManager.egp}',
               ),
               CartInfoRow(
-                title: 'Minimum Order'.hardCoded,
-                value: '\$20.00',
+                title: StringsManager.minimumOrder,
+                value: '20.00 ${StringsManager.egp}',
               ),
               CartInfoRow(
-                title: 'Earned points'.hardCoded,
+                title: StringsManager.earnedPoints,
                 value: '20',
                 color: ColorsManager.mainColor,
               ),
               const GutterExtraLarge(),
               CustomElevatedMediumButton(
-                title: 'Checkout'.hardCoded,
+                title: StringsManager.checkout,
                 onPressed: () {},
               )
             ],

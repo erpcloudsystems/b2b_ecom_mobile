@@ -45,11 +45,12 @@ void main() async {
         MyObserver(),
       ],
       child: EasyLocalization(
-          supportedLocales: AppLocal.supportLocals,
-          path: AppLocal.path,
-          fallbackLocale: const Locale('en', ''),
-          startLocale: const Locale('ar', ''),
-          child: const MyApp()),
+        supportedLocales: AppLocal.supportLocals,
+        path: AppLocal.path,
+        fallbackLocale: const Locale('en', ''),
+        startLocale: const Locale('ar', ''),
+        child: const MyApp(),
+      ),
     ),
   );
 }

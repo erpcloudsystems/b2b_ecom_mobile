@@ -1,3 +1,4 @@
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/core/router/app_routes.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/categories_icon_container.dart';
 import 'package:class_a_ec/features/product/data/models/category_model.dart';
@@ -27,8 +28,8 @@ class CategoriesListView extends StatelessWidget {
               extra: CategoryModel(),
             );
           },
-          child: const CategoriesIconContainer(
-            title: 'Title',
+          child: CategoriesIconContainer(
+            title: StringsManager.title,
             iconData: FontAwesomeIcons.apple,
           ),
         ),

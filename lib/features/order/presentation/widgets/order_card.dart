@@ -1,5 +1,6 @@
 import 'package:class_a_ec/core/global/enums.dart';
 import 'package:class_a_ec/core/resources/colors_managers.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/core/utils/custom_elevated_tiny_button.dart';
 import 'package:class_a_ec/features/order/data/models/order_model.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +52,8 @@ class OrderCard extends StatelessWidget {
                       ),
                       const GutterTiny(),
                       CustomElevatedTinyButton(
-                        title: 'Cancel order',
+                        fontSize: 13,
+                        title: StringsManager.cancelOrder,
                         onPressed: () {},
                       )
                     ],
@@ -61,7 +63,7 @@ class OrderCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        orderModel.price,
+                        '${orderModel.price} ${StringsManager.egp}',
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                               fontWeight: FontWeight.bold,
                               color: ColorsManager.mainColor,
@@ -69,12 +71,13 @@ class OrderCard extends StatelessWidget {
                       ),
                       const GutterSmall(),
                       Text(
-                        '${orderModel.itemsNumber} items',
+                        '${orderModel.itemsNumber} ${StringsManager.items}',
                         style: Theme.of(context).textTheme.bodySmall!,
                       ),
                       const GutterTiny(),
                       CustomElevatedTinyButton(
-                        title: 'Track driver',
+                        fontSize: 13,
+                        title: StringsManager.trackDriver,
                         onPressed: () {},
                         elevatedButtonStyle:
                             CustomElevatedButtonStyle.secondary,

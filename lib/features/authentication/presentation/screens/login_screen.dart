@@ -1,5 +1,5 @@
-import 'package:class_a_ec/core/extensions/string_extension.dart';
 import 'package:class_a_ec/core/resources/colors_managers.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/core/router/app_routes.dart';
 import 'package:class_a_ec/core/utils/custom_elevated_medium_button.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/body_container.dart';
@@ -25,7 +25,7 @@ class LoginScreenState extends State<LoginScreen> {
       body: Stack(
         children: [
           HeaderWidget(
-            title: 'Login'.hardCoded,
+            title: StringsManager.login,
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -38,7 +38,7 @@ class LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   children: [
                     Text(
-                      'Welcome'.hardCoded,
+                      StringsManager.welcome,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const GutterLarge(),
@@ -47,7 +47,7 @@ class LoginScreenState extends State<LoginScreen> {
                     Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        'Forget Password?'.hardCoded,
+                        StringsManager.forgetPassword,
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ),
@@ -69,13 +69,15 @@ class LoginScreenState extends State<LoginScreen> {
                             activeColor: ColorsManager.mainColor,
                           ),
                         ),
-                        Text('Remember me'.hardCoded),
+                        Text(
+                          StringsManager.rememberMe,
+                        ),
                       ],
                     ),
                     const GutterExtraLarge(),
                     Center(
                       child: CustomElevatedMediumButton(
-                        title: 'Login'.hardCoded,
+                        title: StringsManager.login,
                         onPressed: () {
                           context.pushReplacementNamed(AppRoutes.homeScreen);
                         },
@@ -90,12 +92,12 @@ class LoginScreenState extends State<LoginScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Don\'t have an account?'.hardCoded,
+                            StringsManager.doNotHaveAnAccount,
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
                           const GutterTiny(),
                           Text(
-                            'Sign Up'.hardCoded,
+                            StringsManager.signUp,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!

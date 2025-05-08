@@ -1,6 +1,6 @@
-import 'package:class_a_ec/core/extensions/string_extension.dart';
 import 'package:class_a_ec/core/resources/colors_managers.dart';
 import 'package:class_a_ec/core/resources/image_paths.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/body_container.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/header_widget.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/best_seller_list_view.dart';
@@ -87,21 +87,21 @@ class HomeScreenState extends State<HomeScreen> {
                 ),
                 const Gutter(),
                 Padding(
-                  padding: const EdgeInsets.only(
-                    left: 30,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 30,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Good Morning'.hardCoded,
+                        StringsManager.goodMorning,
                         style:
                             Theme.of(context).textTheme.titleMedium!.copyWith(
                                   color: Colors.white,
                                 ),
                       ),
                       Text(
-                        "Rise and shine! It's breakfast time".hardCoded,
+                        StringsManager.riseAndShineItIsOrderTime,
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                               color: ColorsManager.mainColor,
                             ),
@@ -136,12 +136,12 @@ class HomeScreenState extends State<HomeScreen> {
                       child: Row(
                         children: [
                           Text(
-                            'Best Seller'.hardCoded,
+                            StringsManager.bestSeller,
                             style: Theme.of(context).textTheme.bodyLarge,
                           ),
                           const Spacer(),
                           Text(
-                            'View All'.hardCoded,
+                            StringsManager.viewAll,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!
@@ -181,7 +181,7 @@ class HomeScreenState extends State<HomeScreen> {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.w),
                       child: Text(
-                        'Recommend'.hardCoded,
+                        StringsManager.recommended,
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ),
