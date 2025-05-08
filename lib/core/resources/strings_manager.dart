@@ -35,7 +35,7 @@ class StringsManager {
   static const String newPassword = 'New password';
   static const String confirmNewPassword = 'Confirm new password';
   static const String changePassword = 'Change password';
-  static const String changeLanguage = 'Change language';
+  static const String language = 'Language';
   static const String chooseYourLanguage = 'Choose your language';
   static const String english = 'English';
   static const String arabic = 'Arabic';

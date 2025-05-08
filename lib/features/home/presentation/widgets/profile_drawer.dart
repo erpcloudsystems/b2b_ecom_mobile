@@ -1,10 +1,13 @@
 import 'package:class_a_ec/core/resources/colors_managers.dart';
+import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/core/router/app_routes.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'change_language_widget.dart';
 import 'custom_drawer_list_tile.dart';
 import 'user_header_widget.dart';
 
@@ -47,6 +50,19 @@ class ProfileDrawer extends StatelessWidget {
             const CustomDrawerListTile(
               title: 'Contact Us',
               leadingIcon: FontAwesomeIcons.phone,
+            ),
+            const Divider(),
+            CustomDrawerListTile(
+              title: StringsManager.language.tr(),
+              // Switch language icon
+              leadingIcon: FontAwesomeIcons.globe,
+              onTap: () => showModalBottomSheet(
+                context: context,
+                showDragHandle: true,
+                builder: (context) {
+                  return const ChangeLanguageWidget();
+                },
+              ),
             ),
             const Divider(),
             const Gutter(),
