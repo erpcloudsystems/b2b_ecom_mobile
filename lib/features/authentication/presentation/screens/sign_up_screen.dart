@@ -67,7 +67,9 @@ class SignUpScreen extends StatelessWidget {
                     const Gutter(),
                     CustomElevatedMediumButton(
                       title: 'Sign Up'.hardCoded,
-                      onPressed: () {},
+                      onPressed: () {
+                        context.pushReplacementNamed(AppRoutes.homeScreen);
+                      },
                     ),
                     const Gutter(),
                     GestureDetector(

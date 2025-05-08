@@ -32,9 +32,16 @@ class ProductScreen extends StatelessWidget {
                     CustomSearchContainer(onChanged: (value) {}),
                     const GutterLarge(),
                     Expanded(
-                      child: ListView.builder(
+                      child: GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 20,
+                          crossAxisSpacing: 20,
+                          childAspectRatio: 0.7,
+                        ),
                         padding: EdgeInsets.zero,
-                        itemCount: 3,
+                        itemCount: 8,
                         itemBuilder: (context, index) {
                           return const ProductCard();
                         },

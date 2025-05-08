@@ -1,4 +1,5 @@
 import 'package:class_a_ec/core/extensions/string_extension.dart';
+import 'package:class_a_ec/core/utils/custom_drop_down_widget.dart';
 import 'package:class_a_ec/core/utils/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
@@ -17,23 +18,25 @@ class SignUpForm extends StatelessWidget {
           ),
           const Gutter(),
           CustomTextFormField(
+            title: 'Mobile number'.hardCoded,
+          ),
+          const Gutter(),
+          CustomTextFormField(
             title: 'Password'.hardCoded,
             isPassword: true,
           ),
           const Gutter(),
           CustomTextFormField(
-            title: 'Email'.hardCoded,
-            isEmail: true,
+            title: 'Facility name'.hardCoded,
           ),
           const Gutter(),
-          CustomTextFormField(
-            title: 'Mobile number'.hardCoded,
-            isEmail: true,
+          Text(
+            'Facility type'.hardCoded,
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
-          const Gutter(),
-          CustomTextFormField(
-            title: 'Date of birth'.hardCoded,
-            isEmail: true,
+          const GutterTiny(),
+          const CustomDropDownFormField(
+            dropDownList: ['Type 1', 'Type 2', 'Type 3'],
           ),
           const Gutter(),
         ],

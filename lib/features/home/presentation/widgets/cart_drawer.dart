@@ -2,6 +2,7 @@ import 'package:class_a_ec/core/extensions/string_extension.dart';
 import 'package:class_a_ec/core/resources/colors_managers.dart';
 import 'package:class_a_ec/core/utils/custom_divider.dart';
 import 'package:class_a_ec/core/utils/custom_elevated_medium_button.dart';
+import 'package:class_a_ec/features/home/presentation/widgets/cart_info_row.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/cart_item_widget.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/empty_cart_widget.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class CartDrawer extends StatelessWidget {
       child: SingleChildScrollView(
         padding: EdgeInsets.symmetric(
           vertical: 32.h,
-          horizontal: 32.w,
+          horizontal: 16.w,
         ),
         child: Column(
           children: [
@@ -69,23 +70,18 @@ class CartDrawer extends StatelessWidget {
                 },
               ),
               const GutterLarge(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Total',
-                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                          color: Colors.white,
-                        ),
-                  ),
-                  const Spacer(),
-                  Text(
-                    '\$20.00',
-                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                          color: Colors.white,
-                        ),
-                  ),
-                ],
+              CartInfoRow(
+                title: 'Total'.hardCoded,
+                value: '\$20.00',
+              ),
+              CartInfoRow(
+                title: 'Minimum Order'.hardCoded,
+                value: '\$20.00',
+              ),
+              CartInfoRow(
+                title: 'Earned points'.hardCoded,
+                value: '20',
+                color: ColorsManager.mainColor,
               ),
               const GutterExtraLarge(),
               CustomElevatedMediumButton(

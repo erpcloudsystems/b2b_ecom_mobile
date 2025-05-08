@@ -18,6 +18,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
+  bool isRememberMe = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +50,27 @@ class LoginScreenState extends State<LoginScreen> {
                         'Forget Password?'.hardCoded,
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
+                    ),
+                    Row(
+                      children: [
+                        Transform.scale(
+                          scale: 1.5,
+                          child: Checkbox.adaptive(
+                            value: isRememberMe,
+                            onChanged: (value) {
+                              setState(() {
+                                isRememberMe = value ?? false;
+                              });
+                            },
+                            side: const BorderSide(
+                              width: 1,
+                              color: ColorsManager.mainColor,
+                            ),
+                            activeColor: ColorsManager.mainColor,
+                          ),
+                        ),
+                        Text('Remember me'.hardCoded),
+                      ],
                     ),
                     const GutterExtraLarge(),
                     Center(

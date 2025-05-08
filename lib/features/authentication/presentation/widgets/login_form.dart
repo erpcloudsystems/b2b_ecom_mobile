@@ -12,10 +12,8 @@ class LoginForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-         
           CustomTextFormField(
-            title: 'Email'.hardCoded,
-            isEmail: true,
+            title: 'Mobile number'.hardCoded,
           ),
           const Gutter(),
           CustomTextFormField(

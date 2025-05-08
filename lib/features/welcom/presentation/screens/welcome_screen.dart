@@ -37,7 +37,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             SizedBox(
               width: 295.w,
               child: Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.'
+                'Class A Company is specialized in the distribution of imported food products and dry storage goods.'
+                    .hardCoded
                     .hardCoded,
                 style: Theme.of(context).textTheme.bodyMedium,
                 textAlign: TextAlign.center,
@@ -62,7 +63,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 if (isFirstTimeUser) {
                   context.pushReplacementNamed(AppRoutes.onboardingScreen);
                 } else {
-                  context.pushReplacementNamed(AppRoutes.onboardingScreen);
+                  context.pushReplacementNamed(AppRoutes.signUpScreen);
                 }
               },
               backgroundColor: ColorsManager.mainColor.withOpacity(0.7),
