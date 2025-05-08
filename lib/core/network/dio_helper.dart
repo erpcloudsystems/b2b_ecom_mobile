@@ -76,19 +76,25 @@ abstract class BaseDioHelper {
 }
 
 class DioHelper implements BaseDioHelper {
-  final String apiKey;
-  final String apiSecretKey;
-  final Dio dio = Dio(
-    BaseOptions(
-      baseUrl: ApiConstance.baseUrl,
-      receiveDataWhenStatusError: true,
-      connectTimeout: const Duration(seconds: 30),
-    ),
-  );
+  late final PersistCookieJar cookieJar;
+  final Dio dio;
+  final String cookiePath;
+  DioHelper({required this.cookiePath})
+      : dio = Dio(
+          BaseOptions(
+            baseUrl: ApiConstance.baseUrl,
+            receiveDataWhenStatusError: true,
+            connectTimeout: const Duration(seconds: 30),
+          ),
+        ) {
+    initializeCookieJar();
+  }
 
-  final cookieJar = CookieJar(ignoreExpires: true);
-
-  DioHelper({required this.apiKey, required this.apiSecretKey}) {
+  void initializeCookieJar() {
+    cookieJar = PersistCookieJar(
+      ignoreExpires: true,
+      storage: FileStorage("$cookiePath/.cookies/"),
+    );
     dio.interceptors.add(CookieManager(cookieJar));
     if (kDebugMode) {
       dio.interceptors.add(PrettyDioLogger(requestBody: true));
@@ -114,7 +120,6 @@ class DioHelper implements BaseDioHelper {
     dio.options.headers = {
       if (!isMultiPart) 'Content-Type': 'application/json',
       if (!isMultiPart) 'Accept': 'application/json',
-      'Authorization': 'token $apiKey:$apiSecretKey',
     };
     return await request(
         call: () async => await dio.get(
@@ -144,7 +149,6 @@ class DioHelper implements BaseDioHelper {
     dio.options.headers = {
       if (!isMultiPart) 'Content-Type': 'application/json',
       if (!isMultiPart) 'Accept': 'application/json',
-      if (!isLogin) 'Authorization': 'token $apiKey:$apiSecretKey',
     };
 
     return await request(
@@ -176,7 +180,6 @@ class DioHelper implements BaseDioHelper {
     dio.options.headers = {
       if (!isMultiPart) 'Content-Type': 'application/json',
       if (!isMultiPart) 'Accept': 'application/json',
-      'Authorization': 'token $apiKey:$apiSecretKey',
     };
 
     return await request(
@@ -208,7 +211,6 @@ class DioHelper implements BaseDioHelper {
     dio.options.headers = {
       if (!isMultiPart) 'Content-Type': 'application/json',
       if (!isMultiPart) 'Accept': 'application/json',
-      'Authorization': 'token $apiKey:$apiSecretKey',
     };
 
     return await request(
@@ -239,7 +241,6 @@ class DioHelper implements BaseDioHelper {
     dio.options.headers = {
       if (!isMultiPart) 'Content-Type': 'application/json',
       if (!isMultiPart) 'Accept': 'application/json',
-      'Authorization': 'token $apiKey:$apiSecretKey',
     };
     return await request(
       call: () async => await dio.put(
@@ -254,9 +255,7 @@ class DioHelper implements BaseDioHelper {
 
   @override
   Future download({required String url, required String path}) async {
-    dio.options.headers = {
-      'Authorization': 'token $apiKey:$apiSecretKey',
-    };
+    dio.options.headers = {};
     await dio.download(url, path);
   }
 }
@@ -292,7 +291,6 @@ extension on DioHelper {
 BaseDioHelper dioHelper(Ref ref) {
   //final loginState = ref.read(loginControllerProvider).loginModel;
   return DioHelper(
-    apiKey: 'loginState.api',
-    apiSecretKey: 'loginState.apiSecret',
+    cookiePath: '',
   );
 }
