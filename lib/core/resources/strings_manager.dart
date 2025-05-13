@@ -85,4 +85,12 @@ abstract class StringsManager {
   static String get cancelOrder => 'Cancel Order'.tr();
   static String get items => 'Items'.tr();
   static String get trackDriver => 'Track driver'.tr();
+  static String get personalInformation => 'Personal Information'.tr();
+  static String get facilityInformation => 'Facility Information'.tr();
+
+  //
+  static String get resend => 'Resend'.tr();
+  static String get didNotReceiveCode => 'Did not receive code'.tr();
+  static String get verification => 'Verification'.tr();
+  static String get enterPINcode => 'Enter PIN code'.tr();
 }

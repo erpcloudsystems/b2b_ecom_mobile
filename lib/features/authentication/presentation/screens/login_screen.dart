@@ -1,6 +1,7 @@
 import 'package:class_a_ec/core/resources/colors_managers.dart';
 import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/core/router/app_routes.dart';
+import 'package:class_a_ec/core/router/route_services.dart';
 import 'package:class_a_ec/core/utils/custom_elevated_medium_button.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/body_container.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/header_widget.dart';
@@ -86,7 +87,8 @@ class LoginScreenState extends State<LoginScreen> {
                     const GutterLarge(),
                     GestureDetector(
                       onTap: () {
-                        context.pushReplacementNamed(AppRoutes.signUpScreen);
+                        RoutesService.pushReplacementNamed(
+                            context: context, location: AppRoutes.signUpScreen);
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
