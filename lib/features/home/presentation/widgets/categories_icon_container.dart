@@ -1,6 +1,4 @@
-import 'package:class_a_ec/core/resources/colors_managers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoriesIconContainer extends StatelessWidget {
@@ -13,19 +11,14 @@ class CategoriesIconContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(
-          child: Container(
-            width: 60,
-            decoration: BoxDecoration(
-              color: ColorsManager.secondaryColor.withOpacity(0.5),
-              borderRadius: BorderRadius.all(
-                Radius.circular(30.r),
-              ),
-            ),
-            child: Icon(iconData),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(12.r),
+          child: Image.network(
+            'https://www.classatrading.com/wp-content/uploads/2020/12/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B9%D8%A9-min1.jpg',
+            width: 120.w,
+            height: 120.h,
           ),
         ),
-        const GutterTiny(),
         Text(title),
       ],
     );

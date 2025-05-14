@@ -11,7 +11,7 @@ import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../widgets/otp_screen.dart';
+import '../widgets/otp_widget.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -89,54 +89,57 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ],
                       ),
                     const Gutter(),
-                    CustomElevatedMediumButton(
-                      title: currentStep == 1
-                          ? StringsManager.next
-                          : StringsManager.signUp,
-                      onPressed: () {
-                        if (currentStep == 1) {
-                          showBottomSheet(
-                              context: context,
-                              showDragHandle: true,
-                              builder: (context) {
-                                return const OtpVerifyWidget(
-                                  password: '',
-                                  phone: '01023456789',
-                                );
+                    Builder(builder: (context) {
+                      return CustomElevatedMediumButton(
+                        title: currentStep == 1
+                            ? StringsManager.next
+                            : StringsManager.signUp,
+                        onPressed: () {
+                          if (currentStep == 1) {
+                            showBottomSheet(
+                                context: context,
+                                showDragHandle: true,
+                                builder: (context) {
+                                  return const OtpVerifyWidget(
+                                    password: '',
+                                    phone: '01023456789',
+                                  );
+                                }).closed.then((_) {
+                              setState(() {
+                                currentStep = 2;
                               });
-                          setState(() {
-                            currentStep = 2;
-                          });
-                        } else {
-                          context.pushReplacementNamed(AppRoutes.loginScreen);
-                        }
-                      },
-                    ),
-                    const Gutter(),
-                    if (currentStep == 2)
-                      GestureDetector(
-                        onTap: () {
-                          context.pushReplacementNamed(AppRoutes.loginScreen);
+                            });
+                            // });
+                          } else {
+                            context.pushReplacementNamed(AppRoutes.loginScreen);
+                          }
                         },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              StringsManager.alreadyHaveAnAccount,
-                            ),
-                            const GutterTiny(),
-                            Text(
-                              StringsManager.login,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(
-                                    color: ColorsManager.secondaryColor,
-                                  ),
-                            ),
-                          ],
-                        ),
+                      );
+                    }),
+                    const Gutter(),
+                    GestureDetector(
+                      onTap: () {
+                        context.pushReplacementNamed(AppRoutes.loginScreen);
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            StringsManager.alreadyHaveAnAccount,
+                          ),
+                          const GutterTiny(),
+                          Text(
+                            StringsManager.login,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(
+                                  color: ColorsManager.secondaryColor,
+                                ),
+                          ),
+                        ],
                       ),
+                    ),
                   ],
                 ),
               ),

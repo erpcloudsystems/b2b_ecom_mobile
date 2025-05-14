@@ -4,15 +4,23 @@ import 'package:class_a_ec/core/utils/custom_divider.dart';
 import 'package:class_a_ec/core/utils/custom_elevated_medium_button.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/cart_info_row.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/cart_item_widget.dart';
-import 'package:class_a_ec/features/home/presentation/widgets/empty_cart_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
+import '../../../../core/router/app_routes.dart';
+import '../../../product/data/models/category_model.dart';
 
-class CartDrawer extends StatelessWidget {
+class CartDrawer extends StatefulWidget {
   const CartDrawer({super.key});
 
+  @override
+  State<CartDrawer> createState() => _CartDrawerState();
+}
+
+class _CartDrawerState extends State<CartDrawer> {
+  bool testShowProducts = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -49,7 +57,40 @@ class CartDrawer extends StatelessWidget {
                 ),
               ],
             ),
-            const GutterLarge(),
+            const Gutter(),
+            if (!testShowProducts) ...[
+              ListTile(
+                textColor: ColorsManager.red,
+                iconColor: ColorsManager.red,
+                title: Text(StringsManager.invalidRequest),
+                leading: const Icon(Icons.close_rounded),
+              ),
+              Row(
+                children: [
+                  Text(StringsManager.minimumOrder),
+                  const Gutter(),
+                  Text(
+                    '1000 ${StringsManager.egp}',
+                  ),
+                  const Gutter(),
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      thumbShape: SliderComponentShape.noThumb,
+                      overlayShape: SliderComponentShape.noOverlay,
+                      activeTrackColor: ColorsManager.mainColor,
+                      inactiveTrackColor: ColorsManager.grey,
+                    ),
+                    child: Slider(
+                      min: 0,
+                      max: 1000,
+                      value: 250,
+                      onChanged: (value) {},
+                    ),
+                  ),
+                ],
+              ),
+            ],
+            const Gutter(),
             const CustomDivider(),
             const Gutter(),
             if (true) ...[
@@ -87,13 +128,13 @@ class CartDrawer extends StatelessWidget {
                   return const CartItemWidget();
                 },
               ),
-              const GutterLarge(),
+              const Gutter(),
               CartInfoRow(
                 title: StringsManager.total,
                 value: '20.00 ${StringsManager.egp}',
               ),
               CartInfoRow(
-                title: StringsManager.minimumOrder,
+                title: StringsManager.cashBack,
                 value: '20.00 ${StringsManager.egp}',
               ),
               CartInfoRow(
@@ -101,13 +142,27 @@ class CartDrawer extends StatelessWidget {
                 value: '20',
                 color: ColorsManager.mainColor,
               ),
-              const GutterExtraLarge(),
+              const Gutter.large(),
               CustomElevatedMediumButton(
-                title: StringsManager.checkout,
-                onPressed: () {},
+                title: testShowProducts
+                    ? StringsManager.checkout
+                    : StringsManager.completeTheOrder,
+                onPressed: () {
+                  if (testShowProducts) {
+                  } else {
+                    setState(() {
+                      testShowProducts = true;
+                    });
+                    context.pop();
+                    context.pushNamed(
+                      AppRoutes.productsScreen,
+                      extra: CategoryModel(),
+                    );
+                  }
+                },
               )
             ],
-            if (false) const EmptyCartWidget(),
+            // if (false) const EmptyCartWidget(),
           ],
         ),
       ),

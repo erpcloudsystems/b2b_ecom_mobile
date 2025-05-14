@@ -93,4 +93,10 @@ abstract class StringsManager {
   static String get didNotReceiveCode => 'Did not receive code'.tr();
   static String get verification => 'Verification'.tr();
   static String get enterPINcode => 'Enter PIN code'.tr();
+  static String get facilityLocationOnMap => 'Facility Location on Map'.tr();
+  static String get getCurrentLocation => 'Get Current Location'.tr();
+  static String get saveLocation => 'Save Location'.tr();
+  static String get completeTheOrder => 'Complete the Order'.tr();
+  static String get invalidRequest => 'Invalid Request'.tr();
+  static String get cashBack => 'Cash Back'.tr();
 }

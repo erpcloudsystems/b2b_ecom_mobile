@@ -3,18 +3,18 @@ import 'package:class_a_ec/core/resources/image_paths.dart';
 import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/body_container.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/header_widget.dart';
-import 'package:class_a_ec/features/home/presentation/widgets/best_seller_list_view.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/cart_drawer.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/categories_list_view.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/image_slider.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/notification_drawer.dart';
-import 'package:class_a_ec/features/home/presentation/widgets/recommended_items_list_view.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/search_container.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/svg_icon_container.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../widgets/best_seller_list_view.dart';
 import '../widgets/profile_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -34,6 +34,7 @@ class HomeScreenState extends State<HomeScreen> {
   ];
   @override
   Widget build(BuildContext context) {
+    final isArabic = context.locale == const Locale('ar');
     return Scaffold(
       key: _scaffoldKey,
       body: Stack(
@@ -122,62 +123,62 @@ class HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: 100.h,
-                      child: const CategoriesListView(),
-                    ),
-                    Divider(
-                      color: ColorsManager.mainColor.withAlpha(
-                        127,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16.w),
-                      child: Row(
-                        children: [
-                          Text(
-                            StringsManager.bestSeller,
-                            style: Theme.of(context).textTheme.bodyLarge,
-                          ),
-                          const Spacer(),
-                          Text(
-                            StringsManager.viewAll,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                  color: ColorsManager.secondaryColor,
-                                ),
-                          ),
-                          const GutterSmall(),
-                          const Icon(
-                            Icons.arrow_forward_ios,
-                            color: ColorsManager.secondaryColor,
-                            size: 15,
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Gutter(),
-                    SizedBox(
-                      height: 120.h,
-                      child: const BestSellerListView(),
-                    ),
-                    const Gutter(),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.w),
                       child: const ImageSlider(
-                        isLocal: true,
+                        isLocal: false,
                         viewPort: 1,
                         images: [
-                          ImagePaths.offer,
-                          ImagePaths.offer,
-                          ImagePaths.offer,
-                          ImagePaths.offer,
+                          ImagePaths.offerNetwork,
+                          ImagePaths.offerNetwork,
+                          ImagePaths.offerNetwork,
+                          ImagePaths.offerNetwork,
                         ],
                       ),
                     ),
-                    const Gutter(),
+                    // SizedBox(
+                    //   height: 100.h,
+                    //   child: const CategoriesListView(),
+                    // ),
+                    // Divider(
+                    //   color: ColorsManager.mainColor.withAlpha(
+                    //     127,
+                    //   ),
+                    // ),
+                    // Padding(
+                    //   padding: EdgeInsets.symmetric(horizontal: 16.w),
+                    //   child: Row(
+                    //     children: [
+                    //       Text(
+                    //         StringsManager.bestSeller,
+                    //         style: Theme.of(context).textTheme.bodyLarge,
+                    //       ),
+                    //       const Spacer(),
+                    //       Text(
+                    //         StringsManager.viewAll,
+                    //         style: Theme.of(context)
+                    //             .textTheme
+                    //             .bodyMedium!
+                    //             .copyWith(
+                    //               color: ColorsManager.secondaryColor,
+                    //             ),
+                    //       ),
+                    //       const GutterSmall(),
+                    //       const Icon(
+                    //         Icons.arrow_forward_ios,
+                    //         color: ColorsManager.secondaryColor,
+                    //         size: 15,
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
+                    // const Gutter(),
+                    // SizedBox(
+                    //   height: 120.h,
+                    //   child: const BestSellerListView(),
+                    // ),
+                    // const Gutter(),
+                    // const Gutter(),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.w),
                       child: Text(
@@ -185,11 +186,22 @@ class HomeScreenState extends State<HomeScreen> {
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ),
-                    const Gutter(),
+                    const Gutter.small(),
+                    // SizedBox(
+                    //   height: 160.h,
+                    //   child: const RecommendedItemsListView(),
+                    // ),
                     SizedBox(
-                      height: 160.h,
-                      child: const RecommendedItemsListView(),
+                      height: 100.h,
+                      child: const BestSellerListView(),
                     ),
+                    const Gutter(),
+                    Divider(
+                      color: ColorsManager.mainColor.withAlpha(
+                        127,
+                      ),
+                    ),
+                    const CategoriesListView(),
                   ],
                 ),
               ),
@@ -199,10 +211,12 @@ class HomeScreenState extends State<HomeScreen> {
       ),
       endDrawer: Drawer(
         width: MediaQuery.of(context).size.width * 0.85,
-        shape: const RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(60),
-            bottomLeft: Radius.circular(60),
+            topLeft: (!isArabic) ? const Radius.circular(60) : Radius.zero,
+            bottomLeft: (!isArabic) ? const Radius.circular(60) : Radius.zero,
+            topRight: (isArabic) ? const Radius.circular(60) : Radius.zero,
+            bottomRight: (isArabic) ? const Radius.circular(60) : Radius.zero,
           ),
         ),
         child: _drawerWidgets[_currentDrawerIndex],

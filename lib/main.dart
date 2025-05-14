@@ -31,7 +31,6 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 void main() async {
   // FlutterError.onError = ErrorHandler.handleFlutterError;
   WidgetsFlutterBinding.ensureInitialized();
-
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   await EasyLocalization.ensureInitialized();
   await Notifications.init();

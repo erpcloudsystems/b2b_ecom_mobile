@@ -50,6 +50,11 @@ dependencies:
   upgrader: ^11.3.1
   easy_localization: ^3.0.7+1
 
+  # Map
+  google_maps_flutter: ^2.12.1
+  geolocator: ^14.0.0
+  geocoding: ^3.0.0 
+
 
   # Notification
   flutter_local_notifications: ^18.0.1

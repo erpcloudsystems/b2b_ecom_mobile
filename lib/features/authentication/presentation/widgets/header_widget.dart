@@ -1,4 +1,5 @@
 import 'package:class_a_ec/core/resources/colors_managers.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -20,6 +21,7 @@ class HeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isArabic = context.locale == const Locale('ar');
     return Stack(
       children: [
         Container(
@@ -50,8 +52,8 @@ class HeaderWidget extends StatelessWidget {
                 onPressed: () {
                   context.pop();
                 },
-                icon: const Icon(
-                  Icons.arrow_back_ios_new,
+                icon: Icon(
+                  isArabic ? Icons.arrow_forward_ios : Icons.arrow_back_ios_new,
                   color: ColorsManager.white,
                 ),
               ),

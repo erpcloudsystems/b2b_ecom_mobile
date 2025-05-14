@@ -71,5 +71,15 @@
     "Mexican appetizer": "مقبلات مكسيكية",
     "Marinated in a rich blend of herbs and spices, then grilled to perfection, served with a side of zesty dipping sauce.": "متبل بمزيج غني من الأعشاب والتوابل، ثم مشوي إلى الكمال، يقدم مع جانب من صلصة الغمس المنعشة.",
     "Personal Information": "المعلومات الشخصية",
-    "Facility Information": "معلومات المنشأة"
+    "Facility Information": "معلومات المنشأة",
+    "Enter PIN code": "أدخل رمز التعريف الشخصي",
+    "Did not receive code" : "لم تتلقَ الرمز",
+    "Resend": "إعادة إرسال",
+    "Verification": "التحقق",
+    "Facility Location on Map": "موقع المنشأة على الخريطة",
+    "Get Current Location": "الحصول على الموقع الحالي",
+    "Save Location": "حفظ الموقع",
+    "Complete the order": "استكمال الطلب",
+    "Invalid Request": "طلب غير صالح",
+    "Cash Back" : "كاش باك"
 }

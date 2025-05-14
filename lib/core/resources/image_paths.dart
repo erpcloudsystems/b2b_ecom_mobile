@@ -10,7 +10,10 @@ abstract class ImagePaths {
   static const String onboardingBackground3 =
       "${assetsPath}onboarding_background_3.png";
   static const String bestSeller = "${assetsPath}best-seller.png";
-  static const String offer = "${assetsPath}offer.png";
+  static const String offerNetwork =
+      "https://www.classatrading.com/wp-content/uploads/2020/12/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B9%D8%A9-min1.jpg";
+
+  static const String product = "https://www.classatrading.com/wp-content/uploads/2020/12/121503445_768591353718468_6834091192241176665_o.jpg";
 }
 
 abstract class SVGIconPaths {
@@ -22,6 +25,5 @@ abstract class SVGIconPaths {
   static const String cartIcon = "${assets}cart-icon.svg";
   static const String notificationIcon = "${assets}notification-icon.svg";
   static const String profileIcon = "${assets}profile-icon.svg";
-  static const String emptyOrdersIcon =
-      "${assets}empty-orders-icon.svg";
+  static const String emptyOrdersIcon = "${assets}empty-orders-icon.svg";
 }

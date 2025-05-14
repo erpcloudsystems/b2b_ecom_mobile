@@ -1,3 +1,4 @@
+
 import 'package:class_a_ec/core/router/app_routes.dart';
 import 'package:class_a_ec/features/authentication/presentation/screens/login_screen.dart';
 import 'package:class_a_ec/features/authentication/presentation/screens/sign_up_screen.dart';
@@ -12,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import '../../features/authentication/presentation/screens/map_view_screen.dart';
 import '../utils/splash_screen.dart';
 
 part 'go_router_config.g.dart';
@@ -89,6 +91,13 @@ GoRouter goRouter(Ref ref) {
         name: AppRoutes.productDetailsScreen,
         builder: (context, state) {
           return const ProductDetailsScreen();
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.mapViewScreen,
+        name: AppRoutes.mapViewScreen,
+        builder: (context, state) {
+          return const MapViewScreen();
         },
       ),
     ],

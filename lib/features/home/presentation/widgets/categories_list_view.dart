@@ -12,26 +12,26 @@ class CategoriesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
+    return GridView.builder(
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
       itemCount: 6,
       shrinkWrap: true,
-      scrollDirection: Axis.horizontal,
-      itemBuilder: (context, index) => Padding(
-        padding: const EdgeInsets.only(
-          right: 10,
-        ),
-        child: GestureDetector(
-          onTap: () {
-            context.pushNamed(
-              AppRoutes.productsScreen,
-              extra: CategoryModel(),
-            );
-          },
-          child: CategoriesIconContainer(
-            title: StringsManager.title,
-            iconData: FontAwesomeIcons.apple,
-          ),
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3,
+        crossAxisSpacing: 16.w,
+        childAspectRatio: .7,
+      ),
+      itemBuilder: (context, index) => GestureDetector(
+        onTap: () {
+          context.pushNamed(
+            AppRoutes.productsScreen,
+            extra: CategoryModel(),
+          );
+        },
+        child: CategoriesIconContainer(
+          title: StringsManager.title,
+          iconData: FontAwesomeIcons.apple,
         ),
       ),
     );

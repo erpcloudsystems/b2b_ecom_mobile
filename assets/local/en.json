@@ -68,5 +68,15 @@
     "Items": "Items",
     "Track driver": "Track driver",
     "Personal Information": "Personal Information",
-    "Facility Information": "Facility Information"
+    "Facility Information": "Facility Information",
+    "Enter PIN code": "Enter PIN code",
+    "Did not receive code" : "Did not receive code",
+    "Resend": "Resend",
+    "Verification": "Verification",
+    "Facility Location on Map": "Facility Location on Map",
+    "Get Current Location": "Get Current Location",
+    "Save Location": "Save Location",
+    "Complete the order": "Complete the order",
+    "Invalid Request": "Invalid Request",
+    "Cash Back" : "Cash Back"
 }

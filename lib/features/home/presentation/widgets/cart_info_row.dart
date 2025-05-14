@@ -20,7 +20,7 @@ class CartInfoRow extends StatelessWidget {
         const Spacer(),
         Text(
           value,
-          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+          style: Theme.of(context).textTheme.titleSmall!.copyWith(
                 color: color ?? Colors.white,
               ),
         ),

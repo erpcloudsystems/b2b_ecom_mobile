@@ -12,11 +12,15 @@ class CustomElevatedButton extends StatelessWidget {
     required this.title,
     required this.onPressed,
     this.isLoading = false,
+    this.width,
+    this.height,
   });
   final CustomElevatedButtonStyle elevatedButtonStyle;
   final String title;
   final VoidCallback? onPressed;
   final bool isLoading;
+  final double? width;
+  final double? height;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,7 +28,7 @@ class CustomElevatedButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          minimumSize: Size(double.infinity, 55.h),
+          minimumSize: Size(width ?? double.infinity, height ?? 55.h),
           backgroundColor:
               elevatedButtonStyle == CustomElevatedButtonStyle.primary
                   ? ColorsManager.mainColor

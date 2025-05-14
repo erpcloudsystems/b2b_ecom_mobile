@@ -4,6 +4,7 @@ import 'package:flutter_gutter/flutter_gutter.dart';
 import '../../../../core/resources/strings_manager.dart';
 import '../../../../core/utils/custom_drop_down_widget.dart';
 import '../../../../core/utils/custom_text_form_field.dart';
+import 'location_widget.dart';
 
 class FacilityForm extends StatelessWidget {
   const FacilityForm({super.key});
@@ -27,6 +28,8 @@ class FacilityForm extends StatelessWidget {
             StringsManager.type
           ],
         ),
+        const Gutter(),
+        const LocationWidget(),
         const Gutter(),
       ],
     );

@@ -44,7 +44,7 @@ class _ImageSliderState extends State<ImageSlider> {
                   enlargeCenterPage: true,
                   enlargeFactor: 0.3,
                   viewportFraction: widget.viewPort,
-                  aspectRatio: 323 / 128,
+                  aspectRatio: 256 / 128,
                   onPageChanged: (index, reason) {
                     setState(() {
                       current = index;
@@ -61,6 +61,7 @@ class _ImageSliderState extends State<ImageSlider> {
                         )
                       : CachedImage(
                           imageUrl: widget.images[index]!,
+                          width: double.infinity,
                         ),
                 ),
                 carouselController: controller,
