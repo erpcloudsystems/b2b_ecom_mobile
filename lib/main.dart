@@ -23,7 +23,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
     log('Handling a background message ${message.messageId}');
   }
   if (message.notification != null) {
-    await Notifications.showNotification(
+    await Notifications.showNotification( 
         message.notification?.title, message.notification?.body);
   }
 }

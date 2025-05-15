@@ -14,6 +14,7 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../features/authentication/presentation/screens/map_view_screen.dart';
 import '../../features/cart/screens/cart_screen.dart';
+import '../../features/profile/screens/profile_screen.dart';
 import '../utils/splash_screen.dart';
 
 part 'go_router_config.g.dart';
@@ -105,6 +106,13 @@ GoRouter goRouter(Ref ref) {
         name: AppRoutes.cartScreen,
         builder: (context, state) {
           return const CartScreen();
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.profileScreen,
+        name: AppRoutes.profileScreen,
+        builder: (context, state) {
+          return const ProfileScreen();
         },
       ),
     ],

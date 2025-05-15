@@ -39,6 +39,7 @@ class ProfileDrawer extends StatelessWidget {
             CustomDrawerListTile(
               title: StringsManager.myProfile,
               leadingIcon: FontAwesomeIcons.solidUser,
+              onTap: () => context.push(AppRoutes.profileScreen),
             ),
             const Divider(),
             CustomDrawerListTile(

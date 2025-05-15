@@ -97,4 +97,5 @@ abstract class StringsManager {
   static String get completeTheOrder => 'Complete the order'.tr();
   static String get invalidRequest => 'Invalid Request'.tr();
   static String get cashBack => 'Cash Back'.tr();
+  static String get updateProfile => 'Update Profile'.tr();
 }
