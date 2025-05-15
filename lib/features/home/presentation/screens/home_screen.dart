@@ -1,9 +1,11 @@
 import 'package:class_a_ec/core/resources/colors_managers.dart';
 import 'package:class_a_ec/core/resources/image_paths.dart';
 import 'package:class_a_ec/core/resources/strings_manager.dart';
+import 'package:class_a_ec/core/router/app_routes.dart';
+import 'package:class_a_ec/core/router/route_services.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/body_container.dart';
 import 'package:class_a_ec/features/authentication/presentation/widgets/header_widget.dart';
-import 'package:class_a_ec/features/home/presentation/widgets/cart_drawer.dart';
+import 'package:class_a_ec/features/cart/screens/cart_screen.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/categories_list_view.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/image_slider.dart';
 import 'package:class_a_ec/features/home/presentation/widgets/notification_drawer.dart';
@@ -29,7 +31,7 @@ class HomeScreenState extends State<HomeScreen> {
   int _currentDrawerIndex = 0;
   final List<Widget> _drawerWidgets = [
     const ProfileDrawer(),
-    const CartDrawer(),
+    const CartScreen(),
     const NotificationDrawer(),
   ];
   @override
@@ -51,10 +53,8 @@ class HomeScreenState extends State<HomeScreen> {
                     const GutterLarge(),
                     GestureDetector(
                       onTap: () {
-                        setState(() {
-                          _currentDrawerIndex = 1;
-                        });
-                        _scaffoldKey.currentState?.openEndDrawer();
+                        RoutesService.pushNamed(AppRoutes.cartScreen,
+                            context: context);
                       },
                       child: const SVGIconContainer(
                         iconPath: SVGIconPaths.cartIcon,
@@ -116,9 +116,10 @@ class HomeScreenState extends State<HomeScreen> {
           Align(
             alignment: Alignment.bottomCenter,
             child: BodyContainer(
+              height: 695,
               child: SingleChildScrollView(
                 padding: EdgeInsets.symmetric(
-                  vertical: 32.h,
+                  vertical: 22.h,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

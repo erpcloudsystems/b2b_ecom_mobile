@@ -20,7 +20,7 @@ List<OrderModel> orderList = [
   OrderModel(
     title: 'Strawberry Shake'.tr(),
     date: '29 Nov, 01:20 pm',
-    image: ImagePaths.bestSeller,
+    image: ImagePaths.product,
     price: '20.00',
     itemsNumber: '2',
   ),

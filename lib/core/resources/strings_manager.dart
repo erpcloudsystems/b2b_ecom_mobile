@@ -87,8 +87,6 @@ abstract class StringsManager {
   static String get trackDriver => 'Track driver'.tr();
   static String get personalInformation => 'Personal Information'.tr();
   static String get facilityInformation => 'Facility Information'.tr();
-
-  //
   static String get resend => 'Resend'.tr();
   static String get didNotReceiveCode => 'Did not receive code'.tr();
   static String get verification => 'Verification'.tr();
@@ -96,7 +94,7 @@ abstract class StringsManager {
   static String get facilityLocationOnMap => 'Facility Location on Map'.tr();
   static String get getCurrentLocation => 'Get Current Location'.tr();
   static String get saveLocation => 'Save Location'.tr();
-  static String get completeTheOrder => 'Complete the Order'.tr();
+  static String get completeTheOrder => 'Complete the order'.tr();
   static String get invalidRequest => 'Invalid Request'.tr();
   static String get cashBack => 'Cash Back'.tr();
 }

@@ -1,7 +1,5 @@
-import 'package:class_a_ec/core/global/enums.dart';
 import 'package:class_a_ec/core/resources/colors_managers.dart';
 import 'package:class_a_ec/core/resources/strings_manager.dart';
-import 'package:class_a_ec/core/utils/custom_elevated_tiny_button.dart';
 import 'package:class_a_ec/features/order/data/models/order_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gutter/flutter_gutter.dart';
@@ -25,11 +23,11 @@ class OrderCard extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(12.r),
-              child: Image.asset(
+              child: Image.network(
                 orderModel.image,
                 fit: BoxFit.cover,
                 width: 71,
-                height: 108,
+                height: 100,
               ),
             ),
             const Gutter(),
@@ -50,12 +48,13 @@ class OrderCard extends StatelessWidget {
                         orderModel.date,
                         style: Theme.of(context).textTheme.bodySmall!,
                       ),
-                      const GutterTiny(),
-                      CustomElevatedTinyButton(
-                        fontSize: 13,
-                        title: StringsManager.cancelOrder,
-                        onPressed: () {},
-                      )
+                      const Gutter.small(),
+                      Text('OrderNo. #565456',
+                          style:
+                              Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                    color: ColorsManager.mainColor,
+                                    fontWeight: FontWeight.bold,
+                                  )),
                     ],
                   ),
                   const Spacer(),
@@ -74,14 +73,13 @@ class OrderCard extends StatelessWidget {
                         '${orderModel.itemsNumber} ${StringsManager.items}',
                         style: Theme.of(context).textTheme.bodySmall!,
                       ),
-                      const GutterTiny(),
-                      CustomElevatedTinyButton(
-                        fontSize: 13,
-                        title: StringsManager.trackDriver,
-                        onPressed: () {},
-                        elevatedButtonStyle:
-                            CustomElevatedButtonStyle.secondary,
-                      )
+                      const Gutter.small(),
+                      Text(
+                        'PENDING',
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                              color: ColorsManager.orange,
+                            ),
+                      ),
                     ],
                   )
                 ],

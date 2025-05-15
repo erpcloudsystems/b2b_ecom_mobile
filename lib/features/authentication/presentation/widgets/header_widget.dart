@@ -28,13 +28,13 @@ class HeaderWidget extends StatelessWidget {
           height: double.infinity,
           width: double.infinity,
           padding: EdgeInsets.only(
-              top: MediaQuery.of(context).padding.top + (topPadding ?? 20.h)),
+              top: MediaQuery.of(context).padding.top + (topPadding ?? 10.h)),
           alignment: Alignment.topCenter,
           color: ColorsManager.secondaryColor,
           child: title != null
               ? Text(
                   title!,
-                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                         color: ColorsManager.white,
                         fontSize: titleFontSize,
                       ),
@@ -44,7 +44,7 @@ class HeaderWidget extends StatelessWidget {
         if (isBackButtonVisible)
           Padding(
             padding: EdgeInsets.only(
-              top: MediaQuery.of(context).padding.top + 20.h,
+              top: MediaQuery.of(context).padding.top + 10.h,
             ),
             child: Align(
               alignment: Alignment.topLeft,

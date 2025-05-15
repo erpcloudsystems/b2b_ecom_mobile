@@ -1,3 +1,4 @@
+import 'package:class_a_ec/core/resources/colors_managers.dart';
 import 'package:class_a_ec/core/resources/image_paths.dart';
 import 'package:class_a_ec/core/resources/strings_manager.dart';
 import 'package:class_a_ec/core/router/app_routes.dart';
@@ -6,7 +7,8 @@ import 'package:flutter_gutter/flutter_gutter.dart';
 import 'package:go_router/go_router.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key});
+  const ProductCard({super.key, this.inCart = false});
+  final bool inCart;
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +37,25 @@ class ProductCard extends StatelessWidget {
                   'سانتيه بوكس التوفير',
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
-                Text(
-                  '20.00 ${StringsManager.egp}',
-                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        color: Theme.of(context).primaryColor,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      '20.00 ${StringsManager.egp}',
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            color: ColorsManager.mainColor,
+                          ),
+                    ),
+                    if (inCart) ...[
+                      const Gutter(),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.add_shopping_cart_outlined,
+                        ),
                       ),
+                    ]
+                  ],
                 ),
               ],
             ),

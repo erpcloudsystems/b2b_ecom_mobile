@@ -9,4 +9,5 @@ class ColorsManager {
   static const Color black = Colors.black87;
   static const Color scaffoldBackGroundColor = Colors.white;
   static const Color green = Colors.green;
+  static const Color orange = Colors.orange;
 }

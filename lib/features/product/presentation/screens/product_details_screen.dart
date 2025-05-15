@@ -27,7 +27,7 @@ class ProductDetailsScreen extends StatelessWidget {
             height: double.infinity,
             width: double.infinity,
             padding:
-                EdgeInsets.only(top: MediaQuery.of(context).padding.top + 30.h),
+                EdgeInsets.only(top: MediaQuery.of(context).padding.top + 10.h),
             alignment: Alignment.topCenter,
             color: ColorsManager.secondaryColor,
             child: Row(

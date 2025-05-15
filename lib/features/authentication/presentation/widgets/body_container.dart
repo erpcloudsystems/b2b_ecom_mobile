@@ -3,17 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BodyContainer extends StatelessWidget {
-  const BodyContainer({super.key, required this.child});
+  const BodyContainer({super.key, required this.child, this.height = 745});
   final Widget child;
+  final double height;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 680.h,
+      height: height.h,
       width: double.infinity,
-      // padding: EdgeInsets.symmetric(
-      //   horizontal: 32.w,
-      //   vertical: 32.h,
-      // ),
       decoration: const BoxDecoration(
         color: ColorsManager.white,
         borderRadius: BorderRadius.only(
